@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2s3nprgoxwmt"]
+
+[ext_resource type="Script" uid="uid://ujp1yoarl8s2" path="res://Bullets/EnemyBullet.gd" id="1_4dgg2"]
+[ext_resource type="Texture2D" uid="uid://5cvhkbkx6qhx" path="res://assets/EnemyBullet.png" id="2_nm6gf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o3v2i"]
+radius = 1.0
+height = 8.0
+
+[node name="EnemyBullet" type="Area2D"]
+script = ExtResource("1_4dgg2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nm6gf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_o3v2i")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.15, 0.15)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
