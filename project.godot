@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="GDSJam2025"
-run/main_scene="res://scenes/StageSelection/StageSelection.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+run/main_scene="uid://cxerr3s7pdbiy"
+config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
 
