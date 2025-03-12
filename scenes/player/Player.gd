@@ -4,10 +4,19 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+var MAX_HEALTH: int = 5
 var SPEED: float = 150
 var TRAIL_LENGTH: int = 16
 
+var current_health: int:
+	set(value):
+		current_health = max(0, value)
+
 var prev_positions: Array[Vector2]
+
+func _ready() -> void:
+	current_health = MAX_HEALTH
+	Global.player = self
 
 func _process(delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -18,6 +27,11 @@ func _process(delta: float) -> void:
 	else:
 		animation_player.play("RESET")
 	queue_redraw()
+
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		ScreenTransition.start_transition()
+	if Input.is_action_just_pressed("up"):
+		take_damage()
 
 func _physics_process(delta: float) -> void:
 	prev_positions.append(position)
@@ -30,3 +44,7 @@ func _draw() -> void:
 	for prev_pos: Vector2 in prev_positions_local:
 		draw_circle(prev_pos, c / float(TRAIL_LENGTH) * 2, Color(0.3, 1, 0.8, c / float(TRAIL_LENGTH)))
 		c += 1
+
+func take_damage():
+	current_health -= 1
+	Global.player_damaged.emit(current_health)

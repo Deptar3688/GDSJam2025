@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="GDSJam2025"
-run/main_scene="res://scenes/test level/test.tscn"
+run/main_scene="res://scenes/StageSelection/StageSelection.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Globals/Global.gd"
+ScreenTransition="*res://Globals/ScreenTransition/ScreenTransition.tscn"
 
 [display]
 
@@ -22,6 +27,10 @@ window/size/viewport_height=216
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom_font="res://theme/fonts/monogram.ttf"
 
 [input]
 

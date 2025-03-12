@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://073sww2qse64"]
+
+[ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_hsmdi"]
+[ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="2_so1ts"]
+[ext_resource type="PackedScene" uid="uid://dixiy7gaf4kud" path="res://scenes/StageSelection/StageIcon.tscn" id="3_vujsj"]
+[ext_resource type="PackedScene" uid="uid://x7hjbvw2y6u7" path="res://scenes/HUD/HUD.tscn" id="4_k7dqc"]
+
+[node name="StageSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.529412, 0.545098, 0.54902, 1)
+layout_mode = 0
+offset_left = -7.0
+offset_top = -35.0
+offset_right = 393.0
+offset_bottom = 265.0
+texture = ExtResource("1_hsmdi")
+
+[node name="Player" parent="." instance=ExtResource("2_so1ts")]
+position = Vector2(187, 115)
+
+[node name="StageIcon" parent="." instance=ExtResource("3_vujsj")]
+layout_mode = 1
+offset_left = -144.0
+offset_top = 16.0
+offset_right = -144.0
+offset_bottom = 16.0
+
+[node name="StageIcon2" parent="." instance=ExtResource("3_vujsj")]
+layout_mode = 1
+offset_left = -55.0
+offset_top = 20.0
+offset_right = -55.0
+offset_bottom = 20.0
+
+[node name="StageIcon3" parent="." instance=ExtResource("3_vujsj")]
+layout_mode = 1
+offset_left = 61.0
+offset_top = 9.0
+offset_right = 61.0
+offset_bottom = 9.0
+
+[node name="HUD" parent="." instance=ExtResource("4_k7dqc")]

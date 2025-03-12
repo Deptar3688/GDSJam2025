@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmvg260gv31mj"]
+
+[ext_resource type="Texture2D" uid="uid://dnhnrv6rlaqeu" path="res://scenes/DustParticle/DustParticle.png" id="1_n0lgp"]
+[ext_resource type="Script" path="res://scenes/DustParticle/DustParticle.gd" id="1_xiw2s"]
+
+[sub_resource type="Animation" id="Animation_tqb7w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_cr6kx"]
+resource_name = "default"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3lsg3"]
+_data = {
+"RESET": SubResource("Animation_tqb7w"),
+"default": SubResource("Animation_cr6kx")
+}
+
+[node name="DustParticle" type="Node2D"]
+script = ExtResource("1_xiw2s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_n0lgp")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3lsg3")
+}
+autoplay = "default"
