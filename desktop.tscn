@@ -5,5 +5,5 @@
 [node name="Desktop" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(600, 450)
+position = Vector2(200, 150)
 texture = ExtResource("1_0tsg8")
