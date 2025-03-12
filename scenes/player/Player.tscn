@@ -1,11 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d4hx3qm7tpqwh"]
 
 [ext_resource type="Texture2D" uid="uid://cni201xpnp8bu" path="res://assets/bug.png" id="1_aqoi8"]
-<<<<<<< Updated upstream:scenes/player/Player.tscn
-[ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_pfgvr"]
-=======
-[ext_resource type="Script" uid="uid://c8pvo51xmhwhr" path="res://player/Player.gd" id="1_pfgvr"]
->>>>>>> Stashed changes:player/Player.tscn
+[ext_resource type="Script" uid="uid://brraqle4xnnis" path="res://scenes/player/Player.gd" id="1_pfgvr"]
 
 [sub_resource type="Animation" id="Animation_fppsn"]
 length = 0.001
