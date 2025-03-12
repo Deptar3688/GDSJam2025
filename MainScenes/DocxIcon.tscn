@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf6covksq31vl"]
+
+[ext_resource type="Texture2D" uid="uid://oxi7qvdscnae" path="res://assets/Wordfile_enlarged.png" id="1_yxqsw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdjn6"]
+size = Vector2(39, 42)
+
+[node name="DocxIcon" type="Area2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_yxqsw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_tdjn6")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -32.0
+offset_top = 21.0
+offset_right = 33.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "thesis.docx"
