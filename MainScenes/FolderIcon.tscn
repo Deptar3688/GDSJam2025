@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck5ifwo3om81j"]
+
+[ext_resource type="Texture2D" uid="uid://0o33eyujsy1d" path="res://assets/FolderIcon.png" id="1_m4dd3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdjn6"]
+size = Vector2(54, 44)
+
+[node name="FolderIcon" type="Area2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_m4dd3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tdjn6")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -34.0
+offset_top = 22.0
+offset_right = 34.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "cat pictures"

@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxerr3s7pdbiy"]
+[gd_scene load_steps=8 format=3 uid="uid://cxerr3s7pdbiy"]
 
 [ext_resource type="PackedScene" uid="uid://d2s3nprgoxwmt" path="res://Bullets/EnemyBullet.tscn" id="1_atdhg"]
 [ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="2_vsqpw"]
 [ext_resource type="PackedScene" uid="uid://buedm6h7thevo" path="res://Enemy/EnemyTemplate.tscn" id="3_auto5"]
+[ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="4_syorh"]
+[ext_resource type="PackedScene" uid="uid://ck5ifwo3om81j" path="res://MainScenes/FolderIcon.tscn" id="5_pqpd8"]
+[ext_resource type="PackedScene" uid="uid://bf6covksq31vl" path="res://MainScenes/DocxIcon.tscn" id="6_5fkw1"]
+[ext_resource type="PackedScene" uid="uid://h1bivfcb6nms" path="res://MainScenes/SystemIcon.tscn" id="7_1advy"]
 
 [node name="TestScene" type="Node"]
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(200, 150)
+texture = ExtResource("4_syorh")
 
 [node name="EnemyBullet" parent="." instance=ExtResource("1_atdhg")]
 position = Vector2(124, 124)
@@ -14,3 +22,12 @@ position = Vector2(167, 153)
 
 [node name="EnemyTemplate" parent="." instance=ExtResource("3_auto5")]
 position = Vector2(203, 50)
+
+[node name="FolderIcon" parent="." instance=ExtResource("5_pqpd8")]
+position = Vector2(52, 35)
+
+[node name="DocxIcon" parent="." instance=ExtResource("6_5fkw1")]
+position = Vector2(49, 119)
+
+[node name="SystemIcon" parent="." instance=ExtResource("7_1advy")]
+position = Vector2(50, 189)
