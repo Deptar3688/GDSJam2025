@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmvg260gv31mj"]
 
 [ext_resource type="Texture2D" uid="uid://dnhnrv6rlaqeu" path="res://scenes/DustParticle/DustParticle.png" id="1_n0lgp"]
-[ext_resource type="Script" path="res://scenes/DustParticle/DustParticle.gd" id="1_xiw2s"]
+[ext_resource type="Script" uid="uid://dg3lf4n17obol" path="res://scenes/DustParticle/DustParticle.gd" id="1_xiw2s"]
 
 [sub_resource type="Animation" id="Animation_tqb7w"]
 length = 0.001
@@ -51,8 +51,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3lsg3"]
 _data = {
-"RESET": SubResource("Animation_tqb7w"),
-"default": SubResource("Animation_cr6kx")
+&"RESET": SubResource("Animation_tqb7w"),
+&"default": SubResource("Animation_cr6kx")
 }
 
 [node name="DustParticle" type="Node2D"]

@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://c86gaj5auo6mf"]
 
-[ext_resource type="Script" path="res://Globals/ScreenTransition/ScreenTransition.gd" id="1_gxser"]
-[ext_resource type="Shader" path="res://Globals/ScreenTransition/HalftoneTransition.gdshader" id="1_mcwtj"]
+[ext_resource type="Script" uid="uid://yb2op1o468at" path="res://Globals/ScreenTransition/ScreenTransition.gd" id="1_gxser"]
+[ext_resource type="Shader" uid="uid://djm4owpfnhtf" path="res://Globals/ScreenTransition/HalftoneTransition.gdshader" id="1_mcwtj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vss5j"]
 shader = ExtResource("1_mcwtj")
 shader_parameter/TransparentDot = false
 shader_parameter/AspectRatio = 1.5
 shader_parameter/Dots = 10.0
-shader_parameter/_min = null
+shader_parameter/_min = 0.0
 shader_parameter/_max = 1.0
 shader_parameter/height = -0.5
 
