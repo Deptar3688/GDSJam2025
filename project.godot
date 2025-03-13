@@ -24,8 +24,8 @@ ScreenTransition="*res://Globals/ScreenTransition/ScreenTransition.tscn"
 
 window/size/viewport_width=400
 window/size/viewport_height=300
-window/size/window_width_override=1152
-window/size/window_height_override=648
+window/size/window_width_override=1200
+window/size/window_height_override=900
 window/stretch/mode="viewport"
 
 [gui]

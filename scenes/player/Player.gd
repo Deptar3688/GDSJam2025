@@ -30,9 +30,7 @@ func _process(delta: float) -> void:
 
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		ScreenTransition.start_transition()
-	if Input.is_action_just_pressed("up"):
-		take_damage()
-
+		
 func _physics_process(delta: float) -> void:
 	prev_positions.append(position)
 	if prev_positions.size() > TRAIL_LENGTH: prev_positions.pop_front()
