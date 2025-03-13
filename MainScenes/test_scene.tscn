@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="2_vsqpw"]
 [ext_resource type="PackedScene" uid="uid://buedm6h7thevo" path="res://Enemy/EnemyTemplate.tscn" id="3_auto5"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="4_syorh"]
-[ext_resource type="PackedScene" uid="uid://ck5ifwo3om81j" path="res://MainScenes/FolderIcon.tscn" id="5_pqpd8"]
-[ext_resource type="PackedScene" uid="uid://bf6covksq31vl" path="res://MainScenes/DocxIcon.tscn" id="6_5fkw1"]
-[ext_resource type="PackedScene" uid="uid://h1bivfcb6nms" path="res://MainScenes/SystemIcon.tscn" id="7_1advy"]
+[ext_resource type="PackedScene" uid="uid://diuo1rtr4r3s7" path="res://MainScenes/FolderIcon.tscn" id="5_pqpd8"]
+[ext_resource type="PackedScene" uid="uid://cj0ugul708a5v" path="res://MainScenes/DocxIcon.tscn" id="6_5fkw1"]
+[ext_resource type="PackedScene" uid="uid://b6sy5mdphbon2" path="res://MainScenes/SystemIcon.tscn" id="7_1advy"]
 
 [node name="TestScene" type="Node"]
 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cegp7feci5vmb"]
+
+[ext_resource type="Script" path="res://scenes/CatsFolder/cats/CatEnemy.gd" id="1_dkjaa"]
+[ext_resource type="Texture2D" uid="uid://dmcfgjk71oyru" path="res://scenes/CatsFolder/cats/blegh/blegh.jpg" id="1_myn1c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejiih"]
+size = Vector2(44, 46)
+
+[node name="BleghCat" type="Area2D"]
+script = ExtResource("1_dkjaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_myn1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ejiih")

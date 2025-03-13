@@ -15,11 +15,9 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 self_modulate = Color(0.529412, 0.545098, 0.54902, 1)
-layout_mode = 0
-offset_left = -7.0
-offset_top = -35.0
-offset_right = 393.0
-offset_bottom = 265.0
+layout_mode = 1
+offset_right = 400.0
+offset_bottom = 300.0
 texture = ExtResource("1_hsmdi")
 
 [node name="Player" parent="." instance=ExtResource("2_so1ts")]
