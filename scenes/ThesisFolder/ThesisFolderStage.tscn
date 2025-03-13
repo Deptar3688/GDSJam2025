@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0sujmsgjt13u"]
+[gd_scene load_steps=10 format=3 uid="uid://d0sujmsgjt13u"]
 
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_a723l"]
 [ext_resource type="Script" uid="uid://cx4l1ye0070cj" path="res://scenes/ThesisFolder/ThesisFolderStage.gd" id="1_t2vuo"]
@@ -7,8 +7,94 @@
 [ext_resource type="PackedScene" uid="uid://x7hjbvw2y6u7" path="res://scenes/HUD/HUD.tscn" id="4_17n0u"]
 [ext_resource type="PackedScene" uid="uid://dryyx0ucjt0fc" path="res://scenes/ThesisFolder/Enemy/WordEnemy.tscn" id="6_nqb2i"]
 
+[sub_resource type="Animation" id="Animation_nqb2i"]
+resource_name = "start"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../WordEnemy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5.0001, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(190, -52), Vector2(200, 23)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../WordEnemy:active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(7.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_17n0u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../WordEnemy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-39, 23)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../WordEnemy:active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17n0u"]
+_data = {
+&"RESET": SubResource("Animation_17n0u"),
+&"start": SubResource("Animation_nqb2i")
+}
+
 [node name="ThesisFolderStage" type="Node2D"]
 script = ExtResource("1_t2vuo")
+spawning = true
 
 [node name="BG" type="TextureRect" parent="."]
 self_modulate = Color(0.529412, 0.545098, 0.54902, 1)
@@ -35,4 +121,11 @@ scroll_active = false
 [node name="HUD" parent="." instance=ExtResource("4_17n0u")]
 
 [node name="WordEnemy" parent="." instance=ExtResource("6_nqb2i")]
-position = Vector2(103, 91)
+position = Vector2(-39, 23)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../SurviveText")
+libraries = {
+&"": SubResource("AnimationLibrary_17n0u")
+}
+autoplay = "start"
