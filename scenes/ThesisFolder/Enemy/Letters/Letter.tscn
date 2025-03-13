@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bklda2b11uect" path="res://scenes/ThesisFolder/Enemy/Letters/Letter.gd" id="1_6fxb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fxb8"]
+size = Vector2(5, 7)
 
 [node name="Letter" type="Area2D"]
 script = ExtResource("1_6fxb8")
@@ -10,11 +11,15 @@ script = ExtResource("1_6fxb8")
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+text = "
+"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9, 9)
+position = Vector2(2.5, 7.5)
 shape = SubResource("RectangleShape2D_6fxb8")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(2.5, 7.5)
+scale = Vector2(0.25, 0.35)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

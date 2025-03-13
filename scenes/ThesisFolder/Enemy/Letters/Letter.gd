@@ -5,18 +5,26 @@ class_name Letter
 
 @export var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-var rotation_speed := randf_range(-2, 2)
-var pos :Vector2 = (Global.player.global_position - global_position) 
-var dir = pos/pos.abs()
-var direction := (Global.player.global_position - global_position).normalized()
-var velocity := randf_range(30, 100)
+var rotation_speed : float
+var pos :Vector2 
+var direction : Vector2
+var velocity : float
+var spread :float 
 
 func _ready() ->void:
+	rotation_speed = randf_range(-2, 2)
+	pos = (Global.player.global_position - global_position) 
+	direction = (Global.player.global_position - global_position).normalized() 
+	velocity = randf_range(30, 100)
+	spread = randf_range(-PI/6, PI/6)
+	
+	
+	direction = direction.rotated(spread)
 	label.add_text(characters[randi()% characters.length()])
 	
 func _process(delta: float) -> void:
 	rotation += rotation_speed*delta
-	global_position += velocity * delta * direction * dir
+	global_position += velocity * delta * direction 
 	for body in get_overlapping_bodies():
 		if body is Player:
 			body.take_damage()

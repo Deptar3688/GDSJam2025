@@ -2,7 +2,8 @@ extends Area2D
 
 @onready var letterPL := preload("res://scenes/ThesisFolder/Enemy/Letters/Letter.tscn")
 
-@export var shoot_time := 0.5
+@export var shoot_time := 1.0
+@export var amount := 5
 var current_time : float
 
 func _ready() -> void:
@@ -15,7 +16,8 @@ func _process(delta: float) -> void:
 	current_time -= delta
 	
 func shoot() -> void:
-	var letter = letterPL.instantiate()
-	letter.global_position = global_position
-	get_tree().current_scene.add_child(letter)
+	for i in range(amount):
+		var letter = letterPL.instantiate()
+		letter.global_position = global_position
+		get_tree().current_scene.add_child(letter)
 	
