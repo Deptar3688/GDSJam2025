@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dryyx0ucjt0fc"]
+
+[ext_resource type="Texture2D" uid="uid://oxi7qvdscnae" path="res://assets/Wordfile_enlarged.png" id="1_hnjhg"]
+[ext_resource type="Script" uid="uid://bjttxcgq7pepo" path="res://scenes/ThesisFolder/Enemy/WordEnemy.gd" id="1_lnlon"]
+
+[node name="WordEnemy" type="Area2D"]
+script = ExtResource("1_lnlon")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hnjhg")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dc7bsagj1oowf"]
 
-[ext_resource type="Script" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="1_d4kin"]
+[ext_resource type="Script" uid="uid://j84jp4cau2av" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="1_d4kin"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_x3iro"]
 [ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="2_tl11u"]
 [ext_resource type="PackedScene" uid="uid://x7hjbvw2y6u7" path="res://scenes/HUD/HUD.tscn" id="3_cds1e"]
@@ -9,6 +9,33 @@
 [ext_resource type="PackedScene" uid="uid://ctqt40r3goim2" path="res://scenes/CatsFolder/cats/applecat/AppleCat.tscn" id="5_yw4oj"]
 [ext_resource type="PackedScene" uid="uid://cegp7feci5vmb" path="res://scenes/CatsFolder/cats/blegh/BleghCat.tscn" id="6_0lfdu"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="9_86mw4"]
+
+[sub_resource type="Animation" id="Animation_spfom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:spawning")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_avypr"]
 resource_name = "default"
@@ -38,37 +65,10 @@ tracks/1/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_spfom"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:spawning")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vyjm7"]
 _data = {
-"RESET": SubResource("Animation_spfom"),
-"default": SubResource("Animation_avypr")
+&"RESET": SubResource("Animation_spfom"),
+&"default": SubResource("Animation_avypr")
 }
 
 [node name="CatsFolderStage" type="Node2D"]
@@ -102,6 +102,6 @@ scroll_active = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../SurviveText")
 libraries = {
-"": SubResource("AnimationLibrary_vyjm7")
+&"": SubResource("AnimationLibrary_vyjm7")
 }
 autoplay = "default"

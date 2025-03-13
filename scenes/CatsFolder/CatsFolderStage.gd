@@ -35,4 +35,3 @@ func spawn_enemy():
 	var enemy: CatEnemy = cat_enemies.pick_random().instantiate()
 	enemy.position = spawn_position
 	add_child(enemy)
-

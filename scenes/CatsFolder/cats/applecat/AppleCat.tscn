@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctqt40r3goim2"]
 
-[ext_resource type="Script" path="res://scenes/CatsFolder/cats/CatEnemy.gd" id="1_1e2cb"]
+[ext_resource type="Script" uid="uid://clbkwqjhppsyk" path="res://scenes/CatsFolder/cats/CatEnemy.gd" id="1_1e2cb"]
 [ext_resource type="Texture2D" uid="uid://cacfys5hfflyl" path="res://scenes/CatsFolder/cats/applecat/applecat.png" id="2_pmngk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocrrd"]
