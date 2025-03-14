@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dc7bsagj1oowf"]
+[gd_scene load_steps=15 format=3 uid="uid://dc7bsagj1oowf"]
 
 [ext_resource type="Script" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="1_d4kin"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_x3iro"]
@@ -9,6 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://ctqt40r3goim2" path="res://scenes/CatsFolder/cats/applecat/AppleCat.tscn" id="5_yw4oj"]
 [ext_resource type="PackedScene" uid="uid://cegp7feci5vmb" path="res://scenes/CatsFolder/cats/blegh/BleghCat.tscn" id="6_0lfdu"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="9_86mw4"]
+[ext_resource type="Shader" path="res://scenes/trippy.gdshader" id="10_psvhm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onpo1"]
+shader = ExtResource("10_psvhm")
+shader_parameter/kelvin = 1000.0
+shader_parameter/red_colour = 7.4
+shader_parameter/green_colour = 5.6
+shader_parameter/blue_colour = 4.4
+shader_parameter/time_factor = 1.5
+shader_parameter/move = false
+shader_parameter/resolution = 0.4
+shader_parameter/sin_roll = 0.25
+shader_parameter/cos_roll = 0.25
+shader_parameter/alpha = 0.0
 
 [sub_resource type="Animation" id="Animation_spfom"]
 length = 0.001
@@ -36,9 +50,45 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TrippyBackgroundOverlay:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../TrippyBackgroundOverlay:material")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_onpo1")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../TrippyBackgroundOverlay:material:shader_parameter/alpha")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_avypr"]
-resource_name = "default"
+resource_name = "start_cat_stage"
 length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -64,11 +114,47 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TrippyBackgroundOverlay:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../TrippyBackgroundOverlay:material")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_onpo1")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../TrippyBackgroundOverlay:material:shader_parameter/alpha")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.4]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vyjm7"]
 _data = {
 "RESET": SubResource("Animation_spfom"),
-"default": SubResource("Animation_avypr")
+"start_cat_stage": SubResource("Animation_avypr")
 }
 
 [node name="CatsFolderStage" type="Node2D"]
@@ -105,4 +191,4 @@ root_node = NodePath("../SurviveText")
 libraries = {
 "": SubResource("AnimationLibrary_vyjm7")
 }
-autoplay = "default"
+autoplay = "start_cat_stage"
