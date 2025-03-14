@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk721h0i6avqk"]
+
+[ext_resource type="Script" uid="uid://gn2q2bmcup5x" path="res://scenes/FileDeletion/FileDeletion.gd" id="1_xbp54"]
+[ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_y7loe"]
+[ext_resource type="PackedScene" uid="uid://x7hjbvw2y6u7" path="res://scenes/HUD/HUD.tscn" id="2_xbp54"]
+[ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="3_ckw8q"]
+[ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="4_rleum"]
+[ext_resource type="PackedScene" uid="uid://bor8rte7fe3xp" path="res://scenes/FileDeletion/Trash.tscn" id="6_ckw8q"]
+[ext_resource type="PackedScene" uid="uid://msixvo8hjwno" path="res://scenes/FileDeletion/TrashDoc.tscn" id="7_rleum"]
+
+[node name="FileDeletion" type="Node2D"]
+script = ExtResource("1_xbp54")
+
+[node name="BG" type="TextureRect" parent="."]
+self_modulate = Color(0.529412, 0.545098, 0.54902, 1)
+offset_right = 400.0
+offset_bottom = 300.0
+texture = ExtResource("1_y7loe")
+
+[node name="HUD" parent="." instance=ExtResource("2_xbp54")]
+
+[node name="Player" parent="." instance=ExtResource("3_ckw8q")]
+position = Vector2(187, 115)
+
+[node name="SurviveText" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 153.0
+offset_top = 62.0
+offset_right = 245.0
+offset_bottom = 82.0
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("4_rleum")
+bbcode_enabled = true
+text = "[color=red]DELETE THE FILE.[/color]"
+fit_content = true
+scroll_active = false
+
+[node name="Trash" parent="." instance=ExtResource("6_ckw8q")]
+position = Vector2(200, 150)
+
+[node name="TrashDoc" parent="." instance=ExtResource("7_rleum")]
+position = Vector2(190, 147)

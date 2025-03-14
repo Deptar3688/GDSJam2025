@@ -28,6 +28,10 @@ window/size/window_width_override=1200
 window/size/window_height_override=900
 window/stretch/mode="viewport"
 
+[global_group]
+
+Trashable=""
+
 [gui]
 
 theme/custom_font="res://theme/fonts/monogram.ttf"
