@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 			shoot()
 		current_time -= delta
 	
-	
+
 	
 func shoot() -> void:
 	for i in range(amount):

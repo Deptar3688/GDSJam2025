@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://msixvo8hjwno"]
+
+[ext_resource type="Texture2D" uid="uid://oxi7qvdscnae" path="res://assets/Wordfile_enlarged.png" id="1_rseub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rseub"]
+size = Vector2(34, 38)
+
+[node name="TrashDoc" type="Area2D" groups=["Trashable"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rseub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_rseub")

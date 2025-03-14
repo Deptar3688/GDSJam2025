@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bor8rte7fe3xp"]
+
+[ext_resource type="Script" uid="uid://c4c5xtse6eaub" path="res://scenes/FileDeletion/trash.gd" id="1_jmjlp"]
+[ext_resource type="Texture2D" uid="uid://b0cew7dxyeq2r" path="res://assets/Trash.png" id="1_obsxp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmjlp"]
+size = Vector2(20, 27)
+
+[node name="Trash" type="Area2D"]
+script = ExtResource("1_jmjlp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_obsxp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_jmjlp")
