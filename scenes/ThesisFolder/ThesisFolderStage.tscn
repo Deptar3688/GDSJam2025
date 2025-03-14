@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://d0sujmsgjt13u"]
 
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_a723l"]
-[ext_resource type="Script" uid="uid://cx4l1ye0070cj" path="res://scenes/ThesisFolder/ThesisFolderStage.gd" id="1_t2vuo"]
+[ext_resource type="Script" path="res://scenes/ThesisFolder/ThesisFolderStage.gd" id="1_t2vuo"]
 [ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="2_t2vuo"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="3_nqb2i"]
 [ext_resource type="PackedScene" uid="uid://x7hjbvw2y6u7" path="res://scenes/HUD/HUD.tscn" id="4_17n0u"]
@@ -88,8 +88,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_17n0u"]
 _data = {
-&"RESET": SubResource("Animation_17n0u"),
-&"start": SubResource("Animation_nqb2i")
+"RESET": SubResource("Animation_17n0u"),
+"start": SubResource("Animation_nqb2i")
 }
 
 [node name="ThesisFolderStage" type="Node2D"]
@@ -126,6 +126,6 @@ position = Vector2(-39, 23)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../SurviveText")
 libraries = {
-&"": SubResource("AnimationLibrary_17n0u")
+"": SubResource("AnimationLibrary_17n0u")
 }
 autoplay = "start"
