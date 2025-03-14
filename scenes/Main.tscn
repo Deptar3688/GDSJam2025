@@ -7,10 +7,11 @@
 [node name="Main" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.74978, 0.74978, 0.74978, 1)
+self_modulate = Color(0.529412, 0.545098, 0.54902, 1)
 position = Vector2(200, 150)
 texture = ExtResource("1_yiafq")
 
 [node name="HUD" parent="." instance=ExtResource("2_ehjka")]
 
 [node name="Player" parent="." instance=ExtResource("3_mhsm2")]
+position = Vector2(187, 154)
