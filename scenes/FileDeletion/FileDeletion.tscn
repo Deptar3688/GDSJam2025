@@ -58,6 +58,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TrashDoc:moving")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_rleum"]
 resource_name = "start"
@@ -81,7 +93,7 @@ tracks/1/path = NodePath("Trash:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5, 7.03333, 10.0333),
+"times": PackedFloat32Array(0, 5, 7.03333, 9.96667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(200, 30), Vector2(200, 30), Vector2(200, -30), Vector2(200, 150)]
@@ -110,6 +122,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TrashDoc:moving")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_55nbm"]
 _data = {
@@ -129,7 +153,7 @@ texture = ExtResource("1_y7loe")
 [node name="HUD" parent="." instance=ExtResource("2_xbp54")]
 
 [node name="Player" parent="." instance=ExtResource("3_ckw8q")]
-position = Vector2(187, 115)
+position = Vector2(192, 274)
 
 [node name="SurviveText" type="RichTextLabel" parent="."]
 visible = false
@@ -148,6 +172,7 @@ scroll_active = false
 position = Vector2(200, -30)
 
 [node name="TrashDoc" parent="." instance=ExtResource("7_rleum")]
+position = Vector2(193, 305)
 
 [node name="Enemies" type="Node2D" parent="."]
 
