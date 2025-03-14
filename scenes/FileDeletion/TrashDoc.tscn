@@ -1,15 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://msixvo8hjwno"]
+[gd_scene load_steps=4 format=3 uid="uid://msixvo8hjwno"]
 
-[ext_resource type="Texture2D" uid="uid://oxi7qvdscnae" path="res://assets/Wordfile_enlarged.png" id="1_rseub"]
+[ext_resource type="Script" uid="uid://doqoca0rq3j5c" path="res://scenes/FileDeletion/TrashDoc.gd" id="1_5d4sb"]
+[ext_resource type="Texture2D" uid="uid://cicnkcaucyhs6" path="res://assets/Wordfile.png" id="1_rseub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rseub"]
-size = Vector2(34, 38)
+size = Vector2(29, 39)
 
 [node name="TrashDoc" type="Area2D" groups=["Trashable"]]
+script = ExtResource("1_5d4sb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TrashDoc" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="BG" type="TextureRect" parent="TrashDoc"]
+offset_left = -22.0
+offset_top = -20.0
+offset_right = 18.0
+offset_bottom = 20.0
 texture = ExtResource("1_rseub")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 0)
+position = Vector2(-2.5, -0.5)
 shape = SubResource("RectangleShape2D_rseub")

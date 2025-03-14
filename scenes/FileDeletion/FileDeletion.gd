@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var trash = $Trash
 @onready var trash_doc = $TrashDoc
+@onready var AntiVirusPL := preload("res://scenes/FileDeletion/Enemies/AntiVirus.tscn")
+@onready var EnemyNode := $Enemies
+@onready var bg := $BG
 
 @export var map_height := 4
 @export var map_width := 4
@@ -10,8 +13,12 @@ var player_width := 2
 var trash_height : int
 var trash_width : int
 
+@export var spawning : bool = false
+var spawn_time := 1.0
+var current_spawn_time : float
+
 func _ready() -> void:
-	trash.visible = false
+	current_spawn_time = 0
 	
 	trash_width = randi()%map_width
 	trash_height = randi()%map_height
@@ -21,7 +28,11 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
-	#print(player_height, player_width)
+	current_spawn_time += delta 
+	if current_spawn_time >= spawn_time and spawning:
+		current_spawn_time = 0
+		spawn_enemy()
+		
 	# Check if player off screen and move accordingly
 	var view := get_viewport_rect().size
 	# if off screen on left
@@ -31,7 +42,8 @@ func _process(delta: float) -> void:
 		if player_width < 0:
 			player_width = map_width
 		Global.player.global_position = Vector2(view.x, Global.player.global_position.y)
-		trash_doc.global_position = Vector2(view.x, Global.player.global_position.y)
+		if trash_doc != null:
+			trash_doc.global_position = Vector2(view.x, Global.player.global_position.y)
 	# Off screen on right
 	elif Global.player.global_position.x >= view.x :
 		newLocation()
@@ -39,7 +51,8 @@ func _process(delta: float) -> void:
 		if player_width > map_width:
 			player_width = 0
 		Global.player.global_position = Vector2(0, Global.player.global_position.y)
-		trash_doc.global_position = Vector2(0, Global.player.global_position.y)
+		if trash_doc != null:
+			trash_doc.global_position = Vector2(0, Global.player.global_position.y)
 	# Off screen top
 	elif Global.player.global_position.y <= 0:
 		newLocation()
@@ -47,7 +60,8 @@ func _process(delta: float) -> void:
 		if player_height < 0:
 			player_height = map_height
 		Global.player.global_position = Vector2(Global.player.global_position.x, view.y)
-		trash_doc.global_position =  Vector2(Global.player.global_position.x, view.y)
+		if trash_doc != null:
+			trash_doc.global_position =  Vector2(Global.player.global_position.x, view.y)
 	# Off screen bottom
 	elif Global.player.global_position.y >= view.y :
 		newLocation()
@@ -55,18 +69,44 @@ func _process(delta: float) -> void:
 		if player_height > map_height:
 			player_height = 0
 		Global.player.global_position = Vector2(Global.player.global_position.x, 0)
-		trash_doc.global_position = Vector2(Global.player.global_position.x, 0)
+		if trash_doc != null:
+			trash_doc.global_position = Vector2(Global.player.global_position.x, 0)
 	if trash_doc != null:
 		var length : float = (Global.player.global_position - trash_doc.global_position).length()
 		if length > 50:
 			trash_doc.global_position += delta * (Global.player.global_position - trash_doc.global_position).normalized() * 150
 		elif length < 45:
-			trash_doc.global_position += delta * -(Global.player.global_position - trash_doc.global_position).normalized() * 150
-			
+			trash_doc.global_position += delta * -(Global.player.global_position - trash_doc.global_position).normalized() * 150			
+
 func newLocation() -> void:
 	print(trash_height, trash_width)
+	current_spawn_time = 0
+	clear_enemies()
 	ScreenTransition.start_transition2()
 	if player_height == trash_height and player_width ==trash_width:
 		trash.visible = true
 	else:
 		trash.visible = false
+
+func spawn_enemy() -> void:
+	var screen_size := get_viewport_rect().size
+	var edge = randi() % 4  # Pick a random edge
+	var spawn_position: Vector2
+	match edge:
+		0:  # Top
+			spawn_position = Vector2(randf_range(0, screen_size.x), -80)
+		1:  # Bottom
+			spawn_position = Vector2(randf_range(0, screen_size.x), screen_size.y + 80)
+		2:  # Left
+			spawn_position = Vector2(-80, randf_range(0, screen_size.y))
+		3:  # Right
+			spawn_position = Vector2(screen_size.x + 80, randf_range(0, screen_size.y))
+	var AntiVirus := AntiVirusPL.instantiate()
+	EnemyNode.add_child(AntiVirus)
+	AntiVirus.global_position = spawn_position
+	AntiVirus.direction = (Global.player.position - AntiVirus.global_position).normalized()
+	AntiVirus.speed = randi_range(100, 200)
+	
+func clear_enemies():
+	for child in EnemyNode.get_children():
+		child.queue_free()

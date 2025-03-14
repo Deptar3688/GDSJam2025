@@ -65,6 +65,6 @@ hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3lsg3")
+&"": SubResource("AnimationLibrary_3lsg3")
 }
 autoplay = "default"
