@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dixiy7gaf4kud"]
 
-[ext_resource type="Script" path="res://scenes/StageSelection/StageIcon.gd" id="1_fak3t"]
+[ext_resource type="Script" uid="uid://dwv7jbffpcmgs" path="res://scenes/StageSelection/StageIcon.gd" id="1_fak3t"]
 [ext_resource type="Texture2D" uid="uid://cicnkcaucyhs6" path="res://assets/Wordfile.png" id="1_nqim4"]
 [ext_resource type="Material" uid="uid://030062qe6myt" path="res://scenes/StageSelection/StageIconGlitchMaterial.tres" id="4_k0xdw"]
 
