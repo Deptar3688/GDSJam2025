@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://r6oavs55rag8"]
+[gd_scene load_steps=18 format=3 uid="uid://r6oavs55rag8"]
 
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_yiafq"]
+[ext_resource type="Shader" path="res://scenes/Static.gdshader" id="2_dptxo"]
 [ext_resource type="PackedScene" uid="uid://x7hjbvw2y6u7" path="res://scenes/HUD/HUD.tscn" id="2_ehjka"]
 [ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="3_mhsm2"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="4_mty0l"]
@@ -9,6 +10,24 @@
 [ext_resource type="PackedScene" uid="uid://cegp7feci5vmb" path="res://scenes/CatsFolder/cats/blegh/BleghCat.tscn" id="7_n438w"]
 [ext_resource type="PackedScene" uid="uid://byo41ljuk1q0o" path="res://scenes/CatsFolder/cats/catbunny/catbunny.tscn" id="8_strjs"]
 [ext_resource type="PackedScene" uid="uid://dm4ttv8tired4" path="res://scenes/CatsFolder/cats/cabbit/Cabbit.tscn" id="9_g2xba"]
+[ext_resource type="Shader" path="res://scenes/trippy.gdshader" id="10_tjhwg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pgmyh"]
+shader = ExtResource("2_dptxo")
+shader_parameter/amount = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onpo1"]
+shader = ExtResource("10_tjhwg")
+shader_parameter/kelvin = 1000.0
+shader_parameter/red_colour = 7.4
+shader_parameter/green_colour = 5.6
+shader_parameter/blue_colour = 4.4
+shader_parameter/time_factor = 1.5
+shader_parameter/move = false
+shader_parameter/resolution = 0.4
+shader_parameter/sin_roll = 0.25
+shader_parameter/cos_roll = 0.25
+shader_parameter/alpha = 0.0
 
 [sub_resource type="Animation" id="Animation_spfom"]
 length = 0.001
@@ -71,12 +90,42 @@ _data = {
 "start_cat_stage": SubResource("Animation_avypr")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d27ed"]
+shader = ExtResource("2_dptxo")
+shader_parameter/amount = 3.0
+
 [node name="Main" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 self_modulate = Color(0.529412, 0.545098, 0.54902, 1)
+z_index = -5
 position = Vector2(200, 150)
 texture = ExtResource("1_yiafq")
+
+[node name="BackgroundStatic" type="Node2D" parent="."]
+visible = false
+
+[node name="Black" type="ColorRect" parent="BackgroundStatic"]
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 406.0
+offset_bottom = 307.0
+color = Color(0.537011, 0.537011, 0.537011, 1)
+
+[node name="Static" type="ColorRect" parent="BackgroundStatic"]
+material = SubResource("ShaderMaterial_pgmyh")
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 416.0
+offset_bottom = 306.0
+
+[node name="TrippyBackgroundOverlay" type="ColorRect" parent="."]
+z_index = -4
+material = SubResource("ShaderMaterial_onpo1")
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 405.0
+offset_bottom = 305.0
 
 [node name="HUD" parent="." instance=ExtResource("2_ehjka")]
 
@@ -105,3 +154,20 @@ libraries = {
 [node name="CatsFolderStage" type="Node2D" parent="."]
 script = ExtResource("5_iwlti")
 cat_enemies = Array[PackedScene]([ExtResource("6_vavrw"), ExtResource("7_n438w"), ExtResource("8_strjs"), ExtResource("9_g2xba")])
+
+[node name="OverlayStaticEffect" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Black" type="ColorRect" parent="OverlayStaticEffect"]
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 406.0
+offset_bottom = 307.0
+
+[node name="Static" type="ColorRect" parent="OverlayStaticEffect"]
+material = SubResource("ShaderMaterial_d27ed")
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 416.0
+offset_bottom = 306.0
+color = Color(0, 0, 0, 1)
