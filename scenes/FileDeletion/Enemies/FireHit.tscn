@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxjqjekm8amkx"]
 
 [ext_resource type="Texture2D" uid="uid://by8anroneeah" path="res://assets/FireParticle.png" id="1_olwvc"]
-[ext_resource type="Script" uid="uid://cvrkawxst3ox2" path="res://scenes/FileDeletion/Enemies/FireHit.gd" id="2_0lwkv"]
+[ext_resource type="Script" path="res://scenes/FileDeletion/Enemies/FireHit.gd" id="2_0lwkv"]
 
 [sub_resource type="Gradient" id="Gradient_olwvc"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -9,9 +9,9 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 [node name="FireHit" type="CPUParticles2D"]
 emitting = false
 amount = 20
-texture = ExtResource("1_olwvc")
 one_shot = true
 explosiveness = 1.0
+texture = ExtResource("1_olwvc")
 direction = Vector2(1, 1)
 spread = 180.0
 gravity = Vector2(0, 0)
