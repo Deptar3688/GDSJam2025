@@ -3,7 +3,7 @@ extends Node2D
 @export var cat_enemies: Array[PackedScene]
 @export var spawning: bool = false
 
-var spawn_timer: float = 0.5
+var spawn_timer: float = 1.0
 var current_spawn_time: float
 
 func _ready() -> void:
