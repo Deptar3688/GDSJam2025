@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://co7sh64lomb8l"]
 
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_0tsg8"]
-[ext_resource type="Script" path="res://desktop.gd" id="1_ed6rk"]
+[ext_resource type="Script" uid="uid://dtrqc8mlihj58" path="res://desktop.gd" id="1_ed6rk"]
 [ext_resource type="Texture2D" uid="uid://bwg1vpo1dmwoh" path="res://assets/McAfee.png" id="2_qcmjx"]
 [ext_resource type="Texture2D" uid="uid://2gh0evij8hru" path="res://assets/SystemIcon.png" id="3_ed6rk"]
-[ext_resource type="PackedScene" uid="uid://s8skihuvmi68" path="res://player_test.tscn" id="4_wiyix"]
+[ext_resource type="PackedScene" uid="uid://cqakq54i40qh" path="res://player_test.tscn" id="4_wiyix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lsg3"]
 size = Vector2(47, 29)
