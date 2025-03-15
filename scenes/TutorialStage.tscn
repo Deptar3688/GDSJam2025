@@ -109,6 +109,7 @@ text = ""
 
 [node name="TutorialLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = 109.0
 offset_top = 201.0
 offset_right = 313.0

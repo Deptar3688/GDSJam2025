@@ -5,7 +5,7 @@ func _ready() -> void:
 	%System32Destructible.destroyed.connect(cause_blue_screen)
 
 func start_cursor_fight():
-	pass # TODO: The cursor drags it away
+	$AnimationPlayer.play("cursor_spawn")
 
 func cause_blue_screen():
 	ScreenTransition.finish_game()

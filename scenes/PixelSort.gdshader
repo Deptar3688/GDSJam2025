@@ -1,3 +1,4 @@
+// https://godotshaders.com/shader/pseudo-pixel-sorting-v2/
 shader_type canvas_item;
 
 uniform float mask_softness = 1.4; // negative values result in mask being inverted
