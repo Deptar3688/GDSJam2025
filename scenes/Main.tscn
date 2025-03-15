@@ -17,8 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://ctx6c2jppcq6f" path="res://scenes/Destructible/Destructible.tscn" id="14_34cig"]
 [ext_resource type="PackedScene" uid="uid://bk721h0i6avqk" path="res://scenes/FileDeletion/FileDeletion.tscn" id="15_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://oxi7qvdscnae" path="res://assets/Wordfile_enlarged.png" id="16_oopbj"]
-[ext_resource type="PackedScene" uid="uid://bmil7gd4c3ut1" path="res://scenes/System32Stage.tscn" id="17_w0bfw"]
-[ext_resource type="PackedScene" uid="uid://dsnd1io2hrldk" path="res://scenes/Destructible/TrashDestructible.tscn" id="19_nfivy"]
+[ext_resource type="PackedScene" uid="uid://cqskyis8tax6i" path="res://scenes/System32Stage.tscn" id="17_w0bfw"]
+[ext_resource type="PackedScene" path="res://scenes/Destructible/TrashDestructible.tscn" id="19_nfivy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pgmyh"]
 shader = ExtResource("2_dptxo")

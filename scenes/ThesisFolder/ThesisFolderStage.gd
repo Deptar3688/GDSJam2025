@@ -28,7 +28,12 @@ func _process(delta: float) -> void:
 			current_spawn_time = spawn_time
 			
 
-
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'end':
 		get_parent().FileDeleteStage.disabled = false
+
+
+func _on_word_enemy_die():
+	create_tween().tween_property($Window, "material:shader_parameter/percentage", 0.0, 1.0)
+	await get_tree().create_timer(4).timeout
+	anim.play("end")
