@@ -221,7 +221,7 @@ offset_left = -169.0
 offset_top = -143.0
 offset_right = -31.0
 offset_bottom = -130.0
-text = "Thesis - Microsoft Word"
+text = "Thesis - Michealsoft Word"
 
 [node name="SurviveText" type="RichTextLabel" parent="."]
 visible = false
