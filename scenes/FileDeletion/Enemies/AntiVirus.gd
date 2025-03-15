@@ -17,6 +17,7 @@ func _ready() -> void:
 	spawn_time = randf_range(1, 2)
 	current_spawn_time = 0.0
 	shoot = true
+	Global.player_died.connect(queue_free)
 	
 func _process(delta: float) -> void:
 	if not shooting:

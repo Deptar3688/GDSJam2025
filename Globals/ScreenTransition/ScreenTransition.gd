@@ -5,6 +5,8 @@ extends CanvasLayer
 signal screen_covered()
 signal transition_finished()
 
+var static_tween: Tween
+
 func _ready() -> void:
 	visible = false
 	texture.material.set_shader_parameter("height", -1.0)

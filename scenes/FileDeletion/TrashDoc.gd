@@ -16,6 +16,7 @@ func _ready() -> void:
 	speed = 0.0
 	visible=false
 	spawned = false
+	Global.player_died.connect(queue_free)
 	
 	
 func spawn() -> void:

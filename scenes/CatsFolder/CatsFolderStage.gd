@@ -9,17 +9,27 @@ var RAMPING_SPAWN_TIMER: float = 0.5
 var spawn_timer: float = 1.2
 var current_spawn_time: float
 
+var total_timer: float = 0.0
+
 func _ready() -> void:
 	current_spawn_time = spawn_timer
 	%CatPicturesDestructible.destroyed.connect(func(): %AnimationPlayer.play("start_cat_stage"))
+	Global.player_died.connect(_on_player_death)
+
+func _on_player_death():
+	if not is_active:
+		return
+	%CatPicturesDestructible.disabled = false
+	%CatPicturesDestructible.current_health = 5
+	is_active = false
+	$Audio.stop()
+	total_timer = 0.0
 
 func start():
 	spawn_timer = ORIGINAL_SPAWN_TIMER
 	%HUD.set_text("Level 3: cat pictures")
 	is_active = true
-	AudioManager.play("res://audio/cinematic-music-sketches-11-cinematic-percussion-sketch-116186.mp3")
-	get_tree().create_timer(11.0).timeout.connect(func(): spawn_timer = RAMPING_SPAWN_TIMER)
-	get_tree().create_timer(25.7).timeout.connect(deactivate)
+	$Audio.play()
 
 func play_cinematic_sound():
 	AudioManager.play("res://audio/morphed-metal-discharged-cinematic-trailer-sound-effects-124763.mp3")
@@ -31,6 +41,11 @@ func _process(delta: float) -> void:
 		if current_spawn_time <= 0:
 			current_spawn_time = spawn_timer
 			spawn_enemy()
+		total_timer += delta
+		if total_timer >= 11.0:
+			spawn_timer = RAMPING_SPAWN_TIMER
+		if total_timer >= 25.7:
+			deactivate()
 			
 func deactivate():
 	is_active = false

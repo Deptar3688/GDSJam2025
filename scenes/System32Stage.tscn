@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqskyis8tax6i"]
+[gd_scene load_steps=11 format=3 uid="uid://bmil7gd4c3ut1"]
 
 [ext_resource type="Script" path="res://scenes/System32Stage.gd" id="1_aal7w"]
-[ext_resource type="PackedScene" path="res://scenes/Destructible/System32FakeDestructible.tscn" id="2_c5t78"]
+[ext_resource type="PackedScene" uid="uid://bvn6u6bdc6kg0" path="res://scenes/Destructible/System32FakeDestructible.tscn" id="2_c5t78"]
 [ext_resource type="Texture2D" uid="uid://c6f347xn2lpf4" path="res://assets/cursor.png" id="3_e41oy"]
 [ext_resource type="Script" path="res://scenes/CursorBoss.gd" id="3_p8n1g"]
 [ext_resource type="Shader" path="res://scenes/trippy.gdshader" id="5_mat3i"]

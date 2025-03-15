@@ -15,9 +15,6 @@ extends Node2D
 @export var spawning : bool = false
 var spawn_time := 1.0
 var current_spawn_time : float
-var time_out := 4.0
-var current_time_out := 0.0
-
 
 var full : bool
 
@@ -27,6 +24,7 @@ var full : bool
 var currentWave : int
 
 func _ready() -> void:
+	Global.player_died.connect(_on_player_death)
 	current_spawn_time = 0.0
 	full = false
 	start = false
@@ -38,6 +36,20 @@ func _ready() -> void:
 	numFiles = 3
 	
 	# ------ ADD THE NUMBER OF FILES TO THE SCENE -------
+	spawnFiles()
+
+func _on_player_death():
+	if not trash.visible:
+		return
+	anim.play("RESET")
+	%FileDeleteStage.disabled = false
+	%FileDeleteStage.current_health = 5
+	current_spawn_time = 0.0
+	full = false
+	start = false
+	currentWave = 1
+	numFiles = 3
+	spawning = false
 	spawnFiles()
 
 func spawnFiles() -> void:
@@ -60,14 +72,6 @@ func _process(delta: float) -> void:
 	if trash.visible and not trash.spawned:
 		trash.spawn()
 		trash.spawned = true
-	
-	# ---- END OF THE WAVE ----
-	if currentWave >= numberWaves  and not spawning and current_time_out <= time_out:
-		current_time_out += + delta
-		if current_time_out >= 1.5 and trash.visible:
-			trash.poof()
-		if current_time_out >= time_out:
-			get_parent().CatPictureDestruc.disabled = false
 	
 	# ---- MAKE UN INVISBLE -----
 	if trash.visible:
@@ -101,8 +105,11 @@ func checkFiles() -> void:
 	if currentWave < numberWaves:
 		spawnFiles()
 		currentWave += 1
-	else:
+	elif spawning and trash.visible:
 		spawning = false
+		trash.poof()
+		await get_tree().create_timer(4.0).timeout
+		get_parent().CatPictureDestruc.disabled = false
 
 func spawn_enemy() -> void:
 	var screen_size := get_viewport_rect().size

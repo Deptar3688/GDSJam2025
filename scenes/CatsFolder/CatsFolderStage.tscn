@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cao4y68ah12pe"]
+[gd_scene load_steps=15 format=3 uid="uid://cf7nv207hvqk0"]
 
 [ext_resource type="Script" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="1_d4kin"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_x3iro"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ctqt40r3goim2" path="res://scenes/CatsFolder/cats/applecat/AppleCat.tscn" id="5_yw4oj"]
 [ext_resource type="PackedScene" uid="uid://cegp7feci5vmb" path="res://scenes/CatsFolder/cats/blegh/BleghCat.tscn" id="6_0lfdu"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="9_86mw4"]
-[ext_resource type="Shader" uid="uid://dytvxquicei7u" path="res://scenes/trippy.gdshader" id="10_psvhm"]
+[ext_resource type="Shader" path="res://scenes/trippy.gdshader" id="10_psvhm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_onpo1"]
 shader = ExtResource("10_psvhm")
@@ -160,6 +160,7 @@ _data = {
 [node name="CatsFolderStage" type="Node2D"]
 script = ExtResource("1_d4kin")
 cat_enemies = Array[PackedScene]([ExtResource("6_0lfdu"), ExtResource("5_xsyq5"), ExtResource("4_bi6my"), ExtResource("5_yw4oj")])
+is_active = null
 
 [node name="TextureRect" type="TextureRect" parent="."]
 self_modulate = Color(0.529412, 0.545098, 0.54902, 1)
