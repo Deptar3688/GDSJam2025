@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+AudioManager="*res://Globals/AudioManager.gd"
 Global="*res://Globals/Global.gd"
 ScreenTransition="*res://Globals/ScreenTransition/ScreenTransition.tscn"
 
