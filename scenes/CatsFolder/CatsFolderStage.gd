@@ -1,22 +1,31 @@
 extends Node2D
 
 @export var cat_enemies: Array[PackedScene]
-@export var spawning: bool = false
+@export var is_active: bool = false
 
 var spawn_timer: float = 1.0
 var current_spawn_time: float
 
+var survive_timer: float = 30.0
+
 func _ready() -> void:
 	current_spawn_time = spawn_timer
-
+	%CatPicturesDestructible.destroyed.connect(func(): %AnimationPlayer.play("start_cat_stage"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if spawning:
+	if is_active:
+		survive_timer -= delta
 		current_spawn_time -= delta
 		if current_spawn_time <= 0:
 			current_spawn_time = spawn_timer
 			spawn_enemy()
+		if survive_timer <= 0:
+			is_active = false
+			for node in get_children():
+				if node is CatEnemy:
+					node.queue_free()
+					DustParticle.create_dust_explosion(node.position, 4, 300, get_parent())
 
 func spawn_enemy():
 	var screen_size = get_viewport_rect().size

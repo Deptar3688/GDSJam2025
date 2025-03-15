@@ -1,10 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=20 format=3 uid="uid://r6oavs55rag8"]
+=======
+[gd_scene load_steps=22 format=3 uid="uid://r6oavs55rag8"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_0fcto"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_yiafq"]
 [ext_resource type="Shader" path="res://scenes/Static.gdshader" id="2_dptxo"]
 [ext_resource type="PackedScene" uid="uid://x7hjbvw2y6u7" path="res://scenes/HUD/HUD.tscn" id="2_ehjka"]
-[ext_resource type="PackedScene" uid="uid://bl14jirs6awlg" path="res://Bullets/PlayerBullet.tscn" id="2_k23k1"]
+[ext_resource type="PackedScene" uid="uid://v3s8b032wwr8" path="res://Bullets/PlayerBullet.tscn" id="2_k23k1"]
 [ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="3_mhsm2"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="4_mty0l"]
 [ext_resource type="Script" uid="uid://j84jp4cau2av" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="5_iwlti"]
@@ -12,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://cegp7feci5vmb" path="res://scenes/CatsFolder/cats/blegh/BleghCat.tscn" id="7_n438w"]
 [ext_resource type="PackedScene" uid="uid://byo41ljuk1q0o" path="res://scenes/CatsFolder/cats/catbunny/catbunny.tscn" id="8_strjs"]
 [ext_resource type="PackedScene" uid="uid://dm4ttv8tired4" path="res://scenes/CatsFolder/cats/cabbit/Cabbit.tscn" id="9_g2xba"]
+[ext_resource type="Script" path="res://scenes/TutorialStage.gd" id="9_iont1"]
 [ext_resource type="Shader" path="res://scenes/trippy.gdshader" id="10_tjhwg"]
+[ext_resource type="PackedScene" uid="uid://ctx6c2jppcq6f" path="res://scenes/Destructible/Destructible.tscn" id="14_34cig"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pgmyh"]
 shader = ExtResource("2_dptxo")
@@ -76,7 +82,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../CatsFolderStage:spawning")
+tracks/1/path = NodePath("../CatsFolderStage:is_active")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -107,7 +113,8 @@ position = Vector2(200, 150)
 texture = ExtResource("1_yiafq")
 
 [node name="BackgroundStatic" type="Node2D" parent="."]
-visible = false
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 
 [node name="Black" type="ColorRect" parent="BackgroundStatic"]
 offset_left = -8.0
@@ -155,12 +162,17 @@ fit_content = true
 scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 root_node = NodePath("../SurviveText")
 libraries = {
 &"": SubResource("AnimationLibrary_vyjm7")
 }
 
+[node name="TutorialStage" type="Node2D" parent="."]
+script = ExtResource("9_iont1")
+
 [node name="CatsFolderStage" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("5_iwlti")
 cat_enemies = Array[PackedScene]([ExtResource("6_vavrw"), ExtResource("7_n438w"), ExtResource("8_strjs"), ExtResource("9_g2xba")])
 
@@ -182,3 +194,21 @@ offset_top = -8.0
 offset_right = 416.0
 offset_bottom = 306.0
 color = Color(0, 0, 0, 1)
+
+[node name="CatPicturesDestructible" parent="." instance=ExtResource("14_34cig")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(202, 149)
+disabled = true
+
+[node name="TutorialLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 109.0
+offset_top = 201.0
+offset_right = 313.0
+offset_bottom = 230.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "WASD to move. Left Click to shoot.
+Break through the firewall."
+horizontal_alignment = 1
+vertical_alignment = 1

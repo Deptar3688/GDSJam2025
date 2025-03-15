@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=16 format=3 uid="uid://dc7bsagj1oowf"]
+=======
+[gd_scene load_steps=15 format=3 uid="uid://x353volr1lpu"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://j84jp4cau2av" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="1_d4kin"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_x3iro"]

@@ -20,6 +20,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
+	if not Global.player_has_moved and direction != Vector2.ZERO:
+		Global.player_has_moved_first_time.emit()
+		Global.player_has_moved = true
 	velocity = direction * SPEED
 	if velocity.length() > 1.0:
 		animation_player.play("walk")
@@ -30,7 +33,7 @@ func _process(delta: float) -> void:
 
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		ScreenTransition.start_transition()
-		
+
 func _physics_process(delta: float) -> void:
 	prev_positions.append(position)
 	if prev_positions.size() > TRAIL_LENGTH: prev_positions.pop_front()

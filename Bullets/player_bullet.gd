@@ -1,3 +1,4 @@
+class_name PlayerBullet
 extends Area2D
 
 var SPEED:= 300
