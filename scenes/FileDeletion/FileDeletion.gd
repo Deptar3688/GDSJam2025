@@ -33,7 +33,7 @@ func _ready() -> void:
 	#current_time = 0.0
 	
 	# ------ INITALIZE NUMBER OF FILES ----------
-	numFiles = 3
+	numFiles = randi_range(3,5)
 	
 	# ------ ADD THE NUMBER OF FILES TO THE SCENE -------
 	spawnFiles()
@@ -48,9 +48,17 @@ func _on_player_death():
 	full = false
 	start = false
 	currentWave = 1
-	numFiles = 3
+	numFiles = randi_range(3,5)
 	spawning = false
+	wipeFiles()
+	trash.visible = false
+	trash.spawned = false
 	spawnFiles()
+
+func wipeFiles() -> void:
+	for child in FileNode.get_children():
+		child.queue_free()
+		
 
 func spawnFiles() -> void:
 	# ------ ADD THE NUMBER OF FILES TO THE SCENE -------
@@ -60,6 +68,7 @@ func spawnFiles() -> void:
 		var temp := 0
 		var spawn_pos =Vector2(randf_range(0, 400), randf_range(0,300))
 		
+		trash_doc.visible = false
 		trash_doc.global_position = spawn_pos
 	
 
@@ -74,6 +83,7 @@ func _process(delta: float) -> void:
 		trash.spawned = true
 	
 	# ---- MAKE UN INVISBLE -----
+	
 	if trash.visible:
 		for child in FileNode.get_children():
 			if child is TrashDoc:
@@ -129,7 +139,3 @@ func spawn_enemy() -> void:
 	AntiVirus.global_position = spawn_position
 	AntiVirus.direction = (Global.player.position - AntiVirus.global_position).normalized()
 	AntiVirus.speed = randi_range(100, 200)
-	
-func clear_enemies():
-	for child in EnemyNode.get_children():
-		child.queue_free()

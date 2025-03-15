@@ -14,7 +14,7 @@ func _ready() -> void:
 	burnable = true
 	moving = false
 	speed = 0.0
-	visible=false
+	visible = false
 	spawned = false
 	Global.player_died.connect(queue_free)
 	
