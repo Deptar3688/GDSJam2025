@@ -12,6 +12,10 @@ func _ready() -> void:
 	current_spawn_time = spawn_timer
 	%CatPicturesDestructible.destroyed.connect(func(): %AnimationPlayer.play("start_cat_stage"))
 
+func start():
+	%HUD.set_text("Level 3: cat pictures")
+	is_active = true
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_active:

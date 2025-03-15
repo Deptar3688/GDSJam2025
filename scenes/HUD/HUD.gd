@@ -12,3 +12,6 @@ func _ready() -> void:
 func _on_player_damaged(new_health: int):
 	health_pips[new_health].visible = false
 	DustParticle.create_dust_explosion(health_pips[new_health].global_position + Vector2(5, 5), 10, 100.0, self)
+
+func set_text(text: String):
+	$RichTextLabel.text = text

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://x7hjbvw2y6u7"]
 
-[ext_resource type="Script" uid="uid://dy2et2s0mqbt0" path="res://scenes/HUD/HUD.gd" id="1_pojrh"]
+[ext_resource type="Script" path="res://scenes/HUD/HUD.gd" id="1_pojrh"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_pojrh")
@@ -72,6 +72,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 153.0
 offset_bottom = 23.0
+bbcode_enabled = true
 text = "Level 1: thesis.docx"
 fit_content = true
 scroll_active = false
