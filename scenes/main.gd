@@ -4,6 +4,8 @@ extends Node2D
 @onready var player_bullet_node:= $PlayerBullets
 @export var player_bullet_tscn: PackedScene
 @onready var shoot_cooldown:= $Player/ShootCD
+@onready var FileDeleteStage := %FileDeleteStage
+@onready var CatPictureDestruc := %CatPicturesDestructible
 
 func _ready():
 	pass

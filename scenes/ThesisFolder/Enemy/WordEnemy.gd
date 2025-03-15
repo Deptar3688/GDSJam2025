@@ -6,6 +6,10 @@ extends Area2D
 @export var amount := 5
 @export var speed := 50.0
 @export var active := false
+
+@export var HEALTH := 50
+var current_health : int
+
 var current_time : float
 var distance : Vector2
 var length : float
@@ -13,6 +17,7 @@ var pos : Vector2
 
 func _ready() -> void:
 	current_time = shoot_time
+	current_health = HEALTH
 	
 func _process(delta: float) -> void:
 	if active:
@@ -44,8 +49,22 @@ func _process(delta: float) -> void:
 			current_time = shoot_time
 			shoot()
 		current_time -= delta
-	
+		
+		for body in get_overlapping_areas():
+			if body is PlayerBullet:
+				damage()
+				body.queue_free()
 
+func damage() -> void:
+	current_health -= 1
+	DustParticle.create_dust_explosion(position, 8, 300, get_parent())
+	if current_health < 0 : 
+		DustParticle.create_dust_explosion(position, 50, 600, get_parent())
+		queue_free()
+		get_parent().anim.play("end")
+	elif current_health <= 20 and current_health%5 == 0:
+		amount +=1
+		
 	
 func shoot() -> void:
 	for i in range(amount):

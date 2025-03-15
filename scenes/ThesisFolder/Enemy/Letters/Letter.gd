@@ -3,7 +3,7 @@ class_name Letter
 
 @onready var label = $RichTextLabel
 
-@export var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+@export var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*1234567890'
 
 var rotation_speed : float
 var pos :Vector2 

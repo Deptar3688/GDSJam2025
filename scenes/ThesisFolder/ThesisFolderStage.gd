@@ -27,3 +27,8 @@ func _process(delta: float) -> void:
 		if current_spawn_time <= 0:
 			current_spawn_time = spawn_time
 			
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == 'end':
+		get_parent().FileDeleteStage.disabled = false
