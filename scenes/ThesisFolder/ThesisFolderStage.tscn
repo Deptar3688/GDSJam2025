@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0sujmsgjt13u"]
+[gd_scene load_steps=9 format=3 uid="uid://d0sujmsgjt13u"]
 
-[ext_resource type="Script" uid="uid://cx4l1ye0070cj" path="res://scenes/ThesisFolder/ThesisFolderStage.gd" id="1_t2vuo"]
+[ext_resource type="Script" path="res://scenes/ThesisFolder/ThesisFolderStage.gd" id="1_t2vuo"]
+[ext_resource type="Texture2D" uid="uid://boydpmvejsq4d" path="res://assets/DocxWindow.png" id="2_3q0sg"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="3_nqb2i"]
+[ext_resource type="Texture2D" uid="uid://dxarfgps1cyv1" path="res://assets/textbubble.png" id="5_2dde5"]
 [ext_resource type="PackedScene" uid="uid://dryyx0ucjt0fc" path="res://scenes/ThesisFolder/Enemy/WordEnemy.tscn" id="6_nqb2i"]
 
 [sub_resource type="Animation" id="Animation_17n0u"]
@@ -9,50 +11,62 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
+tracks/0/path = NodePath("../WordEnemy:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(-39, 23)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../WordEnemy:position")
+tracks/1/path = NodePath("../WordEnemy:active")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-39, 23)]
+"update": 1,
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../WordEnemy:active")
+tracks/2/path = NodePath("../WordEnemy:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../WordEnemy:visible")
+tracks/3/path = NodePath("../Window:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../TextBubble:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_nqb2i"]
@@ -61,35 +75,35 @@ length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
+tracks/0/path = NodePath("../WordEnemy:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(3, 8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"times": PackedFloat32Array(2.3, 3.26657),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(350, 325), Vector2(350, 250)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../WordEnemy:position")
+tracks/1/path = NodePath("../WordEnemy:active")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(5.0001, 7.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(190, -52), Vector2(200, 23)]
+"times": PackedFloat32Array(5.63333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../WordEnemy:active")
+tracks/2/path = NodePath("../WordEnemy:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(7.5),
+"times": PackedFloat32Array(0.0666667),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -97,25 +111,49 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../WordEnemy:visible")
+tracks/3/path = NodePath("../Window:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.0666667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.0333333, 0.133333),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../TextBubble:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_17n0u"]
 _data = {
-&"RESET": SubResource("Animation_17n0u"),
-&"start": SubResource("Animation_nqb2i")
+"RESET": SubResource("Animation_17n0u"),
+"start": SubResource("Animation_nqb2i")
 }
 
 [node name="ThesisFolderStage" type="Node2D"]
 script = ExtResource("1_t2vuo")
 spawning = true
+
+[node name="Window" type="Sprite2D" parent="."]
+position = Vector2(200, 150)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_3q0sg")
+
+[node name="Label" type="Label" parent="Window"]
+offset_left = -169.0
+offset_top = -143.0
+offset_right = -31.0
+offset_bottom = -130.0
+text = "Thesis - Microsoft Word"
 
 [node name="SurviveText" type="RichTextLabel" parent="."]
 visible = false
@@ -136,5 +174,19 @@ position = Vector2(-39, 23)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../SurviveText")
 libraries = {
-&"": SubResource("AnimationLibrary_17n0u")
+"": SubResource("AnimationLibrary_17n0u")
 }
+
+[node name="TextBubble" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(338, 202)
+texture = ExtResource("5_2dde5")
+
+[node name="Label" type="Label" parent="TextBubble"]
+offset_left = -30.0
+offset_top = -18.0
+offset_right = 30.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "STOP RIGHT 
+THERE!"
