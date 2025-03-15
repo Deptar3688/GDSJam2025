@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctx6c2jppcq6f"]
+[gd_scene load_steps=4 format=3 uid="uid://dsnd1io2hrldk"]
 
-[ext_resource type="Script" uid="uid://61ruax5bb8kl" path="res://scenes/Destructible/Destructible.gd" id="1_6ca25"]
-[ext_resource type="Texture2D" uid="uid://0o33eyujsy1d" path="res://assets/FolderIcon.png" id="1_x1q8d"]
+[ext_resource type="Script" uid="uid://61ruax5bb8kl" path="res://scenes/Destructible/Destructible.gd" id="1_h4ab4"]
+[ext_resource type="Texture2D" uid="uid://b0cew7dxyeq2r" path="res://assets/Trash.png" id="2_h4ab4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k07nd"]
 size = Vector2(67, 55)
 
 [node name="Destructible" type="Area2D"]
 position = Vector2(0, -9)
-script = ExtResource("1_6ca25")
+script = ExtResource("1_h4ab4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 2.5)
@@ -16,7 +16,8 @@ shape = SubResource("RectangleShape2D_k07nd")
 disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_x1q8d")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_h4ab4")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -30,6 +31,6 @@ offset_right = 36.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Cat pictures"
+text = "Trash"
 horizontal_alignment = 1
 vertical_alignment = 1
