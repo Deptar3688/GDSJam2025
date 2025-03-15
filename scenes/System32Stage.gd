@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var firewall_container: =$FirewallContainer
+@export var firewall_flame: PackedScene
+
 func _ready() -> void:
 	%System32FakeDestructible.destroyed.connect(start_cursor_fight)
 	%System32Destructible.destroyed.connect(cause_blue_screen)
@@ -9,3 +12,17 @@ func start_cursor_fight():
 
 func cause_blue_screen():
 	ScreenTransition.finish_game()
+
+func spawn_firewall():
+	var screen_size = get_viewport_rect().size
+	var firewall_amount = screen_size / 21
+	var spawn_position: Vector2
+	
+	var flame = firewall_flame.instantiate()
+	
+	for i in firewall_amount:
+		spawn_position = Vector2(screen_size.x + 80, 14 * i) # spawn from right side in a column
+		firewall_container.add_child(flame)
+	
+func _process(delta):
+	pass
