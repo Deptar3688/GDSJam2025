@@ -5,6 +5,7 @@ func _ready():
 	$Indication.scale = Vector2(0,0)
 	var tween = get_tree().create_tween()
 	tween.tween_property($Indication, "scale", Vector2(1,1),1)
+	Global.player_died.connect(queue_free)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,6 +16,7 @@ func _process(delta):
 
 
 func _on_timer_timeout():
+	AudioManager.play("res://audio/explosion.wav")
 	$CollisionShape2D.visible = true
 	$Mine.visible = false
 	$Indication. visible = false

@@ -12,10 +12,24 @@ var current_phase: phase
 @onready var mine_container: =$MineContainer
 @export var mine_scene: PackedScene
 
-
 func _ready() -> void:
 	%System32FakeDestructible.destroyed.connect(start_cursor_fight)
 	%System32Destructible.destroyed.connect(cause_blue_screen)
+	$CursorBoss.died.connect(func(): 
+		start_fight = false
+		is_attacking = false
+		attack_timer.stop()
+		await get_tree().create_timer(3.0).timeout
+		%System32Destructible.disabled = false
+		)
+	Global.player_died.connect(_on_player_died)
+
+func _on_player_died():
+	%System32FakeDestructible.disabled = false
+	%System32FakeDestructible.current_health = 5
+	start_fight = false
+	is_attacking = false
+	attack_timer.stop()
 
 func activate_fake_destructible():
 	%System32FakeDestructible.disabled = false
@@ -27,7 +41,7 @@ func start_cursor_fight():
 	start_fight = true
 	current_phase = phase.values().pick_random()
 	attack_timer.start()
-	
+	$CursorBoss.is_moving = true
 
 func cause_blue_screen():
 	AudioManager.play("res://audio/zapsplat_science_fiction_robot_glitch_processing_error_malfunction_112389.mp3")

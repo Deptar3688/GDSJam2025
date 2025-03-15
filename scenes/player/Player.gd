@@ -31,9 +31,6 @@ func _process(delta: float) -> void:
 		animation_player.play("RESET")
 	queue_redraw()
 
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		ScreenTransition.start_transition()
-
 func _physics_process(delta: float) -> void:
 	prev_positions.append(position)
 	if prev_positions.size() > TRAIL_LENGTH: prev_positions.pop_front()
