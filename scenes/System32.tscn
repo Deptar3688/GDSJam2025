@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://e8vyt6yksmn1"]
+
+[ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_0xd8k"]
+[ext_resource type="PackedScene" uid="uid://x7hjbvw2y6u7" path="res://scenes/HUD/HUD.tscn" id="3_ncslp"]
+[ext_resource type="Texture2D" uid="uid://c6f347xn2lpf4" path="res://assets/cursor.png" id="4_p2tvl"]
+[ext_resource type="PackedScene" uid="uid://b6sy5mdphbon2" path="res://MainScenes/SystemIcon.tscn" id="4_wpaaj"]
+
+[node name="System32" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+self_modulate = Color(0.45, 0.45, 0.45, 1)
+position = Vector2(200, 150)
+texture = ExtResource("1_0xd8k")
+
+[node name="HUD" parent="." instance=ExtResource("3_ncslp")]
+
+[node name="Cursor" type="Sprite2D" parent="."]
+position = Vector2(257, 100)
+texture = ExtResource("4_p2tvl")
+hframes = 2
+
+[node name="SystemIcon" parent="." instance=ExtResource("4_wpaaj")]
+position = Vector2(195, 158)

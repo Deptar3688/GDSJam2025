@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://gkrtdccitccj"]
+
+[ext_resource type="Texture2D" uid="uid://by8anroneeah" path="res://assets/FireParticle.png" id="1_tqmnm"]
+
+[sub_resource type="Gradient" id="Gradient_tqmnm"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[node name="FireTrail" type="CPUParticles2D"]
+amount = 20
+texture = ExtResource("1_tqmnm")
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(1, 2)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+angular_velocity_max = 1.0
+angle_max = 180.0
+scale_amount_min = 0.8
+scale_amount_max = 1.4
+color_ramp = SubResource("Gradient_tqmnm")

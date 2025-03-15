@@ -16,7 +16,7 @@ func _ready() ->void:
 	pos = (Global.player.global_position - global_position) 
 	direction = (Global.player.global_position - global_position).normalized() 
 	velocity = randf_range(30, 100)
-	spread = randf_range(-PI/6, PI/6)
+	spread = randf_range(-PI/4, PI/4)
 	
 	
 	direction = direction.rotated(spread)
