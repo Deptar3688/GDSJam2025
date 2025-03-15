@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ctx6c2jppcq6f" path="res://scenes/Destructible/Destructible.tscn" id="14_34cig"]
 [ext_resource type="PackedScene" uid="uid://bk721h0i6avqk" path="res://scenes/FileDeletion/FileDeletion.tscn" id="15_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://oxi7qvdscnae" path="res://assets/Wordfile_enlarged.png" id="16_oopbj"]
-[ext_resource type="PackedScene" uid="uid://bvn6u6bdc6kg0" path="res://scenes/Destructible/System32FakeDestructible.tscn" id="17_8xcwv"]
+[ext_resource type="PackedScene" path="res://scenes/Destructible/System32FakeDestructible.tscn" id="17_8xcwv"]
 [ext_resource type="Script" path="res://scenes/System32Stage.gd" id="18_p0n3q"]
 [ext_resource type="PackedScene" path="res://scenes/Destructible/TrashDestructible.tscn" id="19_nfivy"]
 
