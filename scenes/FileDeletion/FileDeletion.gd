@@ -11,6 +11,8 @@ extends Node2D
 
 
 @export var numFiles : float
+@export var numWaves : int
+var currentWave : int
 
 @export var spawning : bool = false
 var spawn_time := 0.5
@@ -24,12 +26,18 @@ func _ready() -> void:
 	current_spawn_time = 0.0
 	full = false
 	start = false
-	%FileDeleteStage.destroyed.connect(func(): start = true)
+	#%FileDeleteStage.destroyed.connect(func(): start = true)
 	#current_time = 0.0
 	
 	# ------ INITALIZE NUMBER OF FILES ----------
 	numFiles = 3
+	numWaves = 2
+	currentWave = 1
 	
+	# ------ ADD THE NUMBER OF FILES TO THE SCENE -------
+	spawnFile()
+	
+func spawnFile() -> void:
 	# ------ ADD THE NUMBER OF FILES TO THE SCENE -------
 	for i in range(numFiles):
 		var trash_doc := FilePL.instantiate()
@@ -39,7 +47,7 @@ func _ready() -> void:
 		
 		trash_doc.global_position = spawn_pos
 	
-	
+
 func _process(delta: float) -> void:
 	if start:
 		Global.current_stage = Global.Stage.TRASH
@@ -49,7 +57,10 @@ func _process(delta: float) -> void:
 	# ---- MAKE UN INVISBLE -----
 	if trash.visible:
 		for child in FileNode.get_children():
-			child.visible = true
+			if child is TrashDoc:
+				child.visible = true
+				child.spawn()
+				child.spawned = true
 	
 	# ------ INCREMENT TIMER -------
 	current_spawn_time += delta 
@@ -71,7 +82,11 @@ func checkFiles() -> void:
 		if doc.burnable:
 			return
 			
-	spawning = false
+	if currentWave < numWaves:
+		spawnFile()
+		currentWave +=1
+	else:
+		spawning = false
 
 func spawn_enemy() -> void:
 	var screen_size := get_viewport_rect().size

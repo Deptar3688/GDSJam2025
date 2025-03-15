@@ -3,6 +3,7 @@ extends Area2D
 @export var spawn_time := 1.5
 var current_spawn_time : float
 
+@onready var FireHitPL := preload("res://scenes/FileDeletion/Enemies/FireHit.tscn")
 var FireWallPL : PackedScene
 var speed: float 
 var direction : Vector2 
@@ -37,6 +38,15 @@ func _process(delta: float) -> void:
 			Fire.global_position = global_position
 			Fire.direction = spot.position.normalized()
 			Fire.rotation = spot.position.angle() + 3 * (PI/2)
+			
+	# ----- CHECK IF HIT ----
+	for body in get_overlapping_areas():
+		if body is PlayerBullet:
+			var FireHit := FireHitPL.instantiate()
+			FireHit.global_position = global_position
+			get_parent().add_child(FireHit)
+			queue_free()
+
 				
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
