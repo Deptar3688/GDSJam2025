@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ctqt40r3goim2" path="res://scenes/CatsFolder/cats/applecat/AppleCat.tscn" id="5_yw4oj"]
 [ext_resource type="PackedScene" uid="uid://cegp7feci5vmb" path="res://scenes/CatsFolder/cats/blegh/BleghCat.tscn" id="6_0lfdu"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="9_86mw4"]
-[ext_resource type="Shader" path="res://scenes/trippy.gdshader" id="10_psvhm"]
+[ext_resource type="Shader" uid="uid://dytvxquicei7u" path="res://scenes/trippy.gdshader" id="10_psvhm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_onpo1"]
 shader = ExtResource("10_psvhm")

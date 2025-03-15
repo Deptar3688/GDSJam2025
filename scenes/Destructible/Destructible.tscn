@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctx6c2jppcq6f"]
 
-[ext_resource type="Script" path="res://scenes/Destructible/Destructible.gd" id="1_6ca25"]
+[ext_resource type="Script" uid="uid://61ruax5bb8kl" path="res://scenes/Destructible/Destructible.gd" id="1_6ca25"]
 [ext_resource type="Texture2D" uid="uid://0o33eyujsy1d" path="res://assets/FolderIcon.png" id="1_x1q8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k07nd"]
