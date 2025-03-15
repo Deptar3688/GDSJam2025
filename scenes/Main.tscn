@@ -264,6 +264,7 @@ position = Vector2(202, 149)
 disabled = true
 
 [node name="System32FakeDestructible" parent="." instance=ExtResource("17_8xcwv")]
+unique_name_in_owner = true
 visible = false
 position = Vector2(200, 146)
 disabled = true
