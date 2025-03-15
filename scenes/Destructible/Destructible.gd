@@ -18,6 +18,7 @@ func _ready() -> void:
 	visible = false
 	if not disabled:
 		visible = true
+		$CollisionShape2D.disabled = false
 
 func _process(delta: float) -> void:
 	for area in get_overlapping_areas():

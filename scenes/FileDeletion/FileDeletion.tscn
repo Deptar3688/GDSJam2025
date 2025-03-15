@@ -85,8 +85,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_55nbm"]
 _data = {
-&"RESET": SubResource("Animation_55nbm"),
-&"start": SubResource("Animation_rleum")
+"RESET": SubResource("Animation_55nbm"),
+"start": SubResource("Animation_rleum")
 }
 
 [node name="FileDeletion" type="Node2D"]
@@ -114,5 +114,5 @@ position = Vector2(200, 150)
 
 [node name="AnimationTree" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_55nbm")
+"": SubResource("AnimationLibrary_55nbm")
 }
