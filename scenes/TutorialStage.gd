@@ -23,4 +23,4 @@ func firewall_destroyed():
 		await get_tree().create_timer(2.0).timeout
 		await create_tween().tween_property(%Background, "modulate:a", 1, 5.0).finished
 		await get_tree().create_timer(3.0).timeout
-		%ThesisStage.start()
+		%ThesisDestructible.disabled = false

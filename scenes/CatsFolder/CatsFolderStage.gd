@@ -3,7 +3,7 @@ extends Node2D
 @export var cat_enemies: Array[PackedScene]
 @export var is_active: bool = false
 
-var spawn_timer: float = 1.0
+var spawn_timer: float = 1.5
 var current_spawn_time: float
 
 var survive_timer: float = 30.0
@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 		current_spawn_time -= delta
 		if current_spawn_time <= 0:
 			current_spawn_time = spawn_timer
+			spawn_timer -= 0.1
 			spawn_enemy()
 		if survive_timer <= 0:
 			is_active = false

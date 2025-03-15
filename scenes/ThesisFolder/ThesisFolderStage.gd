@@ -11,6 +11,11 @@ var current_spawn_time : float
 func _ready() -> void:
 	current_spawn_time = spawn_time
 	start = false
+	%HUD.visible = false
+	%ThesisDestructible.destroyed.connect(func(): 
+		start = true
+		%HUD.visible = true
+		)
 	
 func _process(delta: float) -> void:
 	if start:

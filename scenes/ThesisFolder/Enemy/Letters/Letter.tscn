@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://civf2wc5607fj"]
 
-[ext_resource type="Script" uid="uid://bklda2b11uect" path="res://scenes/ThesisFolder/Enemy/Letters/Letter.gd" id="1_6fxb8"]
+[ext_resource type="Script" path="res://scenes/ThesisFolder/Enemy/Letters/Letter.gd" id="1_6fxb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fxb8"]
 size = Vector2(5, 7)
@@ -11,8 +11,6 @@ script = ExtResource("1_6fxb8")
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-text = "
-"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, 7.5)
