@@ -261,6 +261,7 @@ position = Vector2(202, 149)
 disabled = true
 
 [node name="ThesisFolderStage" parent="." instance=ExtResource("14_3p2gp")]
+unique_name_in_owner = true
 
 [node name="FileDeletion" parent="." instance=ExtResource("15_cvmbd")]
 
