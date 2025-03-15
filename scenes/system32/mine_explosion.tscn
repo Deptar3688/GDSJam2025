@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://crj6s55d2va2o"]
+
+[ext_resource type="Texture2D" uid="uid://drbusk6rhe2xt" path="res://assets/mine.png" id="1_cfr0x"]
+[ext_resource type="Script" path="res://scenes/system32/mine_explosion.gd" id="1_ej2yb"]
+[ext_resource type="Texture2D" uid="uid://7wp8bl3f30oj" path="res://assets/mine_indication.png" id="2_b60ha"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cuf4q"]
+radius = 72.0
+
+[node name="MineExplosion" type="Area2D"]
+script = ExtResource("1_ej2yb")
+
+[node name="Indication" type="Sprite2D" parent="."]
+texture = ExtResource("2_b60ha")
+
+[node name="Mine" type="Sprite2D" parent="."]
+texture = ExtResource("1_cfr0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_cuf4q")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

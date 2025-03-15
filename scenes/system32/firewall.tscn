@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7hligifvqv4p"]
 
-[ext_resource type="Script" uid="uid://dlarvx7bvcm2e" path="res://scenes/system32/FirewallAttack.gd" id="1_e0clv"]
+[ext_resource type="Script" path="res://scenes/system32/FirewallAttack.gd" id="1_e0clv"]
 [ext_resource type="Texture2D" uid="uid://c2papq1qpspgs" path="res://assets/FirewallFlame.png" id="1_xs5vg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0clv"]

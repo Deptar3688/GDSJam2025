@@ -190,10 +190,6 @@ scroll_active = false
 
 [node name="WordEnemy" parent="." instance=ExtResource("6_nqb2i")]
 position = Vector2(-39, 23)
-shoot_time = null
-amount = null
-speed = null
-HEALTH = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../SurviveText")

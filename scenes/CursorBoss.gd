@@ -18,3 +18,9 @@ func take_damage():
 	modulate.r = 100
 	await get_tree().create_timer(0.05).timeout
 	modulate.r = t
+	if HP == 0:
+		die()
+		
+func die():
+	DustParticle.create_dust_explosion(position, 50, 600, get_parent())
+	queue_free()
