@@ -7,6 +7,7 @@ var firewalls_left_to_destroy: int
 func _ready() -> void:
 	if skip_tutorial_debug:
 		return
+	$StaticSound.play()
 	%BackgroundStatic.visible = true
 	%BackgroundStatic.modulate.a = 1
 	%Background.modulate.a = 0
@@ -23,6 +24,7 @@ func start_game():
 func firewall_destroyed():
 	firewalls_left_to_destroy -= 1
 	if firewalls_left_to_destroy <= 0:
+		create_tween().tween_property($StaticSound, "volume_db", -80, 3.0)
 		await get_tree().create_timer(2.0).timeout
 		await create_tween().tween_property(%Background, "modulate:a", 1, 5.0).finished
 		$AnimationPlayer.play("hacked")

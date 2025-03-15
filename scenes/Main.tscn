@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://v3s8b032wwr8" path="res://Bullets/PlayerBullet.tscn" id="2_k23k1"]
 [ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="3_mhsm2"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="4_mty0l"]
-[ext_resource type="Script" uid="uid://j84jp4cau2av" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="5_iwlti"]
+[ext_resource type="Script" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="5_iwlti"]
 [ext_resource type="PackedScene" uid="uid://ctqt40r3goim2" path="res://scenes/CatsFolder/cats/applecat/AppleCat.tscn" id="6_vavrw"]
 [ext_resource type="PackedScene" uid="uid://cegp7feci5vmb" path="res://scenes/CatsFolder/cats/blegh/BleghCat.tscn" id="7_n438w"]
 [ext_resource type="PackedScene" uid="uid://byo41ljuk1q0o" path="res://scenes/CatsFolder/cats/catbunny/catbunny.tscn" id="8_strjs"]
@@ -92,6 +92,20 @@ tracks/1/keys = {
 "method": &"start"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%CatsFolderStage")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_cinematic_sound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_cvmbd"]
 resource_name = "start_file_deletion"
@@ -125,10 +139,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vyjm7"]
 _data = {
-&"RESET": SubResource("Animation_spfom"),
-&"start_cat_stage": SubResource("Animation_avypr"),
-&"start_file_deletion": SubResource("Animation_cvmbd"),
-&"start_thesis_stage": SubResource("Animation_3p2gp")
+"RESET": SubResource("Animation_spfom"),
+"start_cat_stage": SubResource("Animation_avypr"),
+"start_file_deletion": SubResource("Animation_cvmbd"),
+"start_thesis_stage": SubResource("Animation_3p2gp")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d27ed"]
@@ -193,7 +207,7 @@ scroll_active = false
 unique_name_in_owner = true
 root_node = NodePath("../SurviveText")
 libraries = {
-&"": SubResource("AnimationLibrary_vyjm7")
+"": SubResource("AnimationLibrary_vyjm7")
 }
 
 [node name="TutorialStage" parent="." instance=ExtResource("9_ecxt0")]
@@ -203,6 +217,7 @@ skip_tutorial_debug = true
 unique_name_in_owner = true
 script = ExtResource("5_iwlti")
 cat_enemies = Array[PackedScene]([ExtResource("6_vavrw"), ExtResource("7_n438w"), ExtResource("8_strjs"), ExtResource("9_g2xba")])
+is_active = null
 
 [node name="PlayerBullets" type="Node2D" parent="."]
 
@@ -239,7 +254,6 @@ text = "thesis.docx"
 unique_name_in_owner = true
 visible = false
 position = Vector2(202, 149)
-disabled = true
 
 [node name="System32Destructible" parent="." instance=ExtResource("14_34cig")]
 unique_name_in_owner = true
@@ -252,6 +266,7 @@ disabled = true
 text = "System32"
 
 [node name="System32Stage" parent="." instance=ExtResource("17_w0bfw")]
+unique_name_in_owner = true
 
 [node name="ThesisFolderStage" parent="." instance=ExtResource("14_3p2gp")]
 unique_name_in_owner = true
