@@ -22,5 +22,11 @@ wait_time = 10.0
 [node name="MoveDuration" type="Timer" parent="."]
 wait_time = 4.0
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="LeavingTimer" to="." method="_on_leaving_timer_timeout"]
 [connection signal="timeout" from="MoveDuration" to="." method="_on_move_duration_timeout"]
+[connection signal="timeout" from="Timer" to="." method="changeDirection"]

@@ -55,12 +55,13 @@ func _process(delta: float) -> void:
 			global_position.y = 0
 			leaving = false
 		else:
-			if length <= 200 or leaving:
-				pos = (Global.player.global_position - global_position)
-				global_position +=  -pos.normalized() * speed * delta
-			else:
-				pos = (Global.player.global_position - global_position)
-				global_position +=  pos.normalized() * speed * delta
+			#if length <= 200 or leaving:
+				#pos = (Global.player.global_position - global_position)
+				#global_position +=  -pos.normalized() * speed * delta
+			#else:
+				#pos = (Global.player.global_position - global_position)
+				#global_position +=  pos.normalized() * speed * delta
+			global_position += pos * speed * delta
 			
 		if current_time <= 0:
 			current_time = shoot_time
@@ -91,6 +92,15 @@ func shoot() -> void:
 		var letter = letterPL.instantiate()
 		letter.global_position = global_position
 		get_tree().current_scene.add_child(letter)
+		
+func changeDirection () -> void:
+	var direction_x = randf_range(-1, 1)
+	var direction_y = randf_range(-1, 1)
+	var newTime = randf_range(0.1, 0.5)
+	pos = Vector2(direction_x, direction_y).normalized()
+	
+	$Timer.start(newTime)
+	
 
 func _on_leaving_timer_timeout():
 	leaving = true
