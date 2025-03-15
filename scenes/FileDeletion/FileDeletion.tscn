@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bk721h0i6avqk"]
 
-[ext_resource type="Script" path="res://scenes/FileDeletion/FileDeletion.gd" id="1_xbp54"]
+[ext_resource type="Script" uid="uid://gn2q2bmcup5x" path="res://scenes/FileDeletion/FileDeletion.gd" id="1_xbp54"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="4_rleum"]
 [ext_resource type="PackedScene" uid="uid://bor8rte7fe3xp" path="res://scenes/FileDeletion/Trash.tscn" id="6_ckw8q"]
 
@@ -85,8 +85,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_55nbm"]
 _data = {
-"RESET": SubResource("Animation_55nbm"),
-"start": SubResource("Animation_rleum")
+&"RESET": SubResource("Animation_55nbm"),
+&"start": SubResource("Animation_rleum")
 }
 
 [node name="FileDeletion" type="Node2D"]
@@ -114,5 +114,5 @@ position = Vector2(200, 150)
 
 [node name="AnimationTree" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_55nbm")
+&"": SubResource("AnimationLibrary_55nbm")
 }

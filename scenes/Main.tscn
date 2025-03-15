@@ -1,6 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://dslcyfy7osoi5"]
+[gd_scene load_steps=28 format=3 uid="uid://dslcyfy7osoi5"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_0fcto"]
+[ext_resource type="Script" uid="uid://b7y2mqgjbthgq" path="res://scenes/main.gd" id="1_0fcto"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_yiafq"]
 [ext_resource type="Shader" uid="uid://cbhrmnxjcim4a" path="res://scenes/Static.gdshader" id="2_dptxo"]
 [ext_resource type="PackedScene" uid="uid://x7hjbvw2y6u7" path="res://scenes/HUD/HUD.tscn" id="2_ehjka"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ctx6c2jppcq6f" path="res://scenes/Destructible/Destructible.tscn" id="14_34cig"]
 [ext_resource type="PackedScene" uid="uid://bk721h0i6avqk" path="res://scenes/FileDeletion/FileDeletion.tscn" id="15_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://oxi7qvdscnae" path="res://assets/Wordfile_enlarged.png" id="16_oopbj"]
+[ext_resource type="PackedScene" uid="uid://dsnd1io2hrldk" path="res://scenes/Destructible/TrashDestructible.tscn" id="19_nfivy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pgmyh"]
 shader = ExtResource("2_dptxo")
@@ -264,5 +265,11 @@ disabled = true
 unique_name_in_owner = true
 
 [node name="FileDeletion" parent="." instance=ExtResource("15_cvmbd")]
+
+[node name="FileDeleteStage" parent="." instance=ExtResource("19_nfivy")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(200, 150)
+disabled = true
 
 [editable path="ThesisDestructible"]

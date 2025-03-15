@@ -24,6 +24,7 @@ func _ready() -> void:
 	current_spawn_time = 0.0
 	full = false
 	start = false
+	%FileDeleteStage.destroyed.connect(func(): start = true)
 	#current_time = 0.0
 	
 	# ------ INITALIZE NUMBER OF FILES ----------
