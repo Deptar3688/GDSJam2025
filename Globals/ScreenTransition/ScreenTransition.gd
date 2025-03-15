@@ -40,3 +40,11 @@ func exit_transition2():
 	await create_tween().tween_property(texture, "material:shader_parameter/height", -1.0, 0.5).finished
 	transition_finished.emit()
 	visible = false
+
+func finish_game():
+	visible = true
+	var t: PropertyTweener = create_tween().tween_property($PixelSortOverlay, "material:shader_parameter/sort", 2.0, 4.0)
+	t.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	await t.finished
+	await get_tree().create_timer(2.0).timeout
+	$AnimationPlayer.play("finish")

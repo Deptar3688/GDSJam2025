@@ -22,5 +22,6 @@ func firewall_destroyed():
 	if firewalls_left_to_destroy <= 0:
 		await get_tree().create_timer(2.0).timeout
 		await create_tween().tween_property(%Background, "modulate:a", 1, 5.0).finished
+		$AnimationPlayer.play("hacked")
 		await get_tree().create_timer(3.0).timeout
 		%ThesisDestructible.disabled = false
