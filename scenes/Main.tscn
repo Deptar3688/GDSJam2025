@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://r6oavs55rag8"]
+[gd_scene load_steps=26 format=3 uid="uid://dslcyfy7osoi5"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_0fcto"]
+[ext_resource type="Script" uid="uid://b7y2mqgjbthgq" path="res://scenes/main.gd" id="1_0fcto"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_yiafq"]
 [ext_resource type="Shader" path="res://scenes/Static.gdshader" id="2_dptxo"]
 [ext_resource type="PackedScene" uid="uid://x7hjbvw2y6u7" path="res://scenes/HUD/HUD.tscn" id="2_ehjka"]
@@ -14,7 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://dm4ttv8tired4" path="res://scenes/CatsFolder/cats/cabbit/Cabbit.tscn" id="9_g2xba"]
 [ext_resource type="Script" path="res://scenes/TutorialStage.gd" id="9_iont1"]
 [ext_resource type="Shader" path="res://scenes/trippy.gdshader" id="10_tjhwg"]
+[ext_resource type="PackedScene" uid="uid://d0sujmsgjt13u" path="res://scenes/ThesisFolder/ThesisFolderStage.tscn" id="14_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://ctx6c2jppcq6f" path="res://scenes/Destructible/Destructible.tscn" id="14_34cig"]
+[ext_resource type="PackedScene" uid="uid://bk721h0i6avqk" path="res://scenes/FileDeletion/FileDeletion.tscn" id="15_cvmbd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pgmyh"]
 shader = ExtResource("2_dptxo")
@@ -59,6 +61,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ThesisFolderStage:start")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../FileDeletion:start")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_avypr"]
 resource_name = "start_cat_stage"
@@ -88,10 +114,42 @@ tracks/1/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_cvmbd"]
+resource_name = "start_file_deletion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FileDeletion:start")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3p2gp"]
+resource_name = "start_thesis_stage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ThesisFolderStage:start")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vyjm7"]
 _data = {
 &"RESET": SubResource("Animation_spfom"),
-&"start_cat_stage": SubResource("Animation_avypr")
+&"start_cat_stage": SubResource("Animation_avypr"),
+&"start_file_deletion": SubResource("Animation_cvmbd"),
+&"start_thesis_stage": SubResource("Animation_3p2gp")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d27ed"]
@@ -208,3 +266,7 @@ text = "WASD to move. Left Click to shoot.
 Break through the firewall."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ThesisFolderStage" parent="." instance=ExtResource("14_3p2gp")]
+
+[node name="FileDeletion" parent="." instance=ExtResource("15_cvmbd")]

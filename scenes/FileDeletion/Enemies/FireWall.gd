@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 			body.take_damage()
 			var FireHit := FireHitPL.instantiate()
 			FireHit.global_position = Global.player.global_position
-			get_tree().current_scene.EnemyNode.add_child(FireHit)
+			get_parent().add_child(FireHit)
 			queue_free()
 
 

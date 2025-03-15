@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		var proj_speed := randf_range(100, 250)
 		for spot in FirePositions.get_children():
 			var Fire := FireWallPL.instantiate()
-			get_tree().current_scene.EnemyNode.add_child(Fire)
+			get_parent().add_child(Fire)
 			Fire.speed = proj_speed
 			Fire.global_position = global_position
 			Fire.direction = spot.position.normalized()

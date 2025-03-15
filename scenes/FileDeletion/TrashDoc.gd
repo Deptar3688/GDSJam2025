@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var texture = $TrashDoc/BG
 @onready var texture_burning_material: ShaderMaterial = preload("res://scenes/StageSelection/StageIconBurningMaterial.tres")
-@onready var SceneNode := get_tree().current_scene
+@onready var SceneNode := get_parent().get_parent()
 var burnable : bool
 @export var moving : bool
 
@@ -12,6 +12,7 @@ func _ready() -> void:
 	burnable = true
 	moving = false
 	speed = 0.0
+	visible=false
 	
 func _process(delta: float) -> void:
 	# ---- CHECK IF PLAYER -----
