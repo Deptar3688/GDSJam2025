@@ -53,6 +53,9 @@ func take_damage():
 	AudioManager.play("res://audio/zapsplat_science_fiction_robot_glitch_error_malfunction_short_112386.mp3")
 	if current_health <= 0:
 		AudioManager.play("res://audio/zapsplat_science_fiction_robot_glitch_processing_error_malfunction_112389.mp3")
-		ScreenTransition.transparent_static(2.0, 1.0)
+		ScreenTransition.transparent_static(3.0, 1.0)
+		position = Vector2(200, 100)
+		Global.player_died.emit()
+		current_health = MAX_HEALTH
 	else:
 		ScreenTransition.transparent_static(0.2, 0.4)

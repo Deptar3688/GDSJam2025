@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjnuaagr3tyem"]
+
+[ext_resource type="Script" path="res://scenes/CatsFolder/cats/CatEnemy.gd" id="1_kcmb5"]
+[ext_resource type="Texture2D" uid="uid://beffpybhn6tlx" path="res://scenes/CatsFolder/cats/gleeb/gleeb.png" id="2_fsnvl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8xco"]
+size = Vector2(46, 45)
+
+[node name="Gleeb" type="Area2D"]
+script = ExtResource("1_kcmb5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_fsnvl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_u8xco")

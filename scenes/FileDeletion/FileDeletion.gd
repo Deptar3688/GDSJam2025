@@ -15,9 +15,6 @@ extends Node2D
 @export var spawning : bool = false
 var spawn_time := 1.0
 var current_spawn_time : float
-var time_out := 4.0
-var current_time_out := 0.0
-
 
 var full : bool
 
@@ -27,6 +24,7 @@ var full : bool
 var currentWave : int
 
 func _ready() -> void:
+	Global.player_died.connect(_on_player_death)
 	current_spawn_time = 0.0
 	full = false
 	start = false
@@ -35,10 +33,32 @@ func _ready() -> void:
 	#current_time = 0.0
 	
 	# ------ INITALIZE NUMBER OF FILES ----------
-	numFiles = 3
+	numFiles = randi_range(3,5)
 	
 	# ------ ADD THE NUMBER OF FILES TO THE SCENE -------
 	spawnFiles()
+
+func _on_player_death():
+	if not trash.visible:
+		return
+	anim.play("RESET")
+	%FileDeleteStage.disabled = false
+	%FileDeleteStage.current_health = 5
+	current_spawn_time = 0.0
+	full = false
+	start = false
+	currentWave = 1
+	numFiles = randi_range(3,5)
+	spawning = false
+	wipeFiles()
+	trash.visible = false
+	trash.spawned = false
+	spawnFiles()
+
+func wipeFiles() -> void:
+	for child in FileNode.get_children():
+		child.queue_free()
+		
 
 func spawnFiles() -> void:
 	# ------ ADD THE NUMBER OF FILES TO THE SCENE -------
@@ -48,6 +68,7 @@ func spawnFiles() -> void:
 		var temp := 0
 		var spawn_pos =Vector2(randf_range(0, 400), randf_range(0,300))
 		
+		trash_doc.visible = false
 		trash_doc.global_position = spawn_pos
 	
 
@@ -61,15 +82,8 @@ func _process(delta: float) -> void:
 		trash.spawn()
 		trash.spawned = true
 	
-	# ---- END OF THE WAVE ----
-	if currentWave >= numberWaves  and not spawning and current_time_out <= time_out:
-		current_time_out += + delta
-		if current_time_out >= 1.5 and trash.visible:
-			trash.poof()
-		if current_time_out >= time_out:
-			get_parent().CatPictureDestruc.disabled = false
-	
 	# ---- MAKE UN INVISBLE -----
+	
 	if trash.visible:
 		for child in FileNode.get_children():
 			if child is TrashDoc:
@@ -101,8 +115,11 @@ func checkFiles() -> void:
 	if currentWave < numberWaves:
 		spawnFiles()
 		currentWave += 1
-	else:
+	elif spawning and trash.visible:
 		spawning = false
+		trash.poof()
+		await get_tree().create_timer(4.0).timeout
+		get_parent().CatPictureDestruc.disabled = false
 
 func spawn_enemy() -> void:
 	var screen_size := get_viewport_rect().size
@@ -122,7 +139,3 @@ func spawn_enemy() -> void:
 	AntiVirus.global_position = spawn_position
 	AntiVirus.direction = (Global.player.position - AntiVirus.global_position).normalized()
 	AntiVirus.speed = randi_range(100, 200)
-	
-func clear_enemies():
-	for child in EnemyNode.get_children():
-		child.queue_free()

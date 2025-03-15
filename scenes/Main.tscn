@@ -1,13 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://dslcyfy7osoi5"]
+[gd_scene load_steps=32 format=3 uid="uid://dslcyfy7osoi5"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_0fcto"]
+[ext_resource type="Script" uid="uid://b7y2mqgjbthgq" path="res://scenes/main.gd" id="1_0fcto"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_yiafq"]
-[ext_resource type="Shader" path="res://scenes/Static.gdshader" id="2_dptxo"]
+[ext_resource type="Shader" uid="uid://b5k1xwkacjwol" path="res://scenes/Static.gdshader" id="2_dptxo"]
 [ext_resource type="PackedScene" uid="uid://x7hjbvw2y6u7" path="res://scenes/HUD/HUD.tscn" id="2_ehjka"]
 [ext_resource type="PackedScene" uid="uid://v3s8b032wwr8" path="res://Bullets/PlayerBullet.tscn" id="2_k23k1"]
 [ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="3_mhsm2"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="4_mty0l"]
-[ext_resource type="Script" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="5_iwlti"]
+[ext_resource type="Script" uid="uid://j84jp4cau2av" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="5_iwlti"]
 [ext_resource type="PackedScene" uid="uid://ctqt40r3goim2" path="res://scenes/CatsFolder/cats/applecat/AppleCat.tscn" id="6_vavrw"]
 [ext_resource type="PackedScene" uid="uid://cegp7feci5vmb" path="res://scenes/CatsFolder/cats/blegh/BleghCat.tscn" id="7_n438w"]
 [ext_resource type="PackedScene" uid="uid://byo41ljuk1q0o" path="res://scenes/CatsFolder/cats/catbunny/catbunny.tscn" id="8_strjs"]
@@ -15,10 +15,15 @@
 [ext_resource type="PackedScene" uid="uid://dm4ttv8tired4" path="res://scenes/CatsFolder/cats/cabbit/Cabbit.tscn" id="9_g2xba"]
 [ext_resource type="PackedScene" uid="uid://d0sujmsgjt13u" path="res://scenes/ThesisFolder/ThesisFolderStage.tscn" id="14_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://ctx6c2jppcq6f" path="res://scenes/Destructible/Destructible.tscn" id="14_34cig"]
+[ext_resource type="PackedScene" uid="uid://banyhwd3laeby" path="res://scenes/CatsFolder/cats/cookie/Cookie.tscn" id="14_jbiqe"]
+[ext_resource type="AudioStream" uid="uid://cndybdsx41gb8" path="res://audio/cinematic-music-sketches-11-cinematic-percussion-sketch-116186.mp3" id="14_oknxy"]
 [ext_resource type="PackedScene" uid="uid://bk721h0i6avqk" path="res://scenes/FileDeletion/FileDeletion.tscn" id="15_cvmbd"]
+[ext_resource type="PackedScene" uid="uid://qx3466bwmmwj" path="res://scenes/CatsFolder/cats/jackson/Jackson.tscn" id="15_w8sr8"]
+[ext_resource type="PackedScene" uid="uid://bdpbnojcrtx85" path="res://scenes/CatsFolder/cats/melissa/Melissa.tscn" id="16_heg72"]
 [ext_resource type="Texture2D" uid="uid://oxi7qvdscnae" path="res://assets/Wordfile_enlarged.png" id="16_oopbj"]
+[ext_resource type="PackedScene" uid="uid://cjnuaagr3tyem" path="res://scenes/CatsFolder/cats/gleeb/Gleeb.tscn" id="17_1cd10"]
 [ext_resource type="PackedScene" uid="uid://cqskyis8tax6i" path="res://scenes/System32Stage.tscn" id="17_w0bfw"]
-[ext_resource type="PackedScene" path="res://scenes/Destructible/TrashDestructible.tscn" id="19_nfivy"]
+[ext_resource type="PackedScene" uid="uid://dsnd1io2hrldk" path="res://scenes/Destructible/TrashDestructible.tscn" id="19_nfivy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pgmyh"]
 shader = ExtResource("2_dptxo")
@@ -139,10 +144,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vyjm7"]
 _data = {
-"RESET": SubResource("Animation_spfom"),
-"start_cat_stage": SubResource("Animation_avypr"),
-"start_file_deletion": SubResource("Animation_cvmbd"),
-"start_thesis_stage": SubResource("Animation_3p2gp")
+&"RESET": SubResource("Animation_spfom"),
+&"start_cat_stage": SubResource("Animation_avypr"),
+&"start_file_deletion": SubResource("Animation_cvmbd"),
+&"start_thesis_stage": SubResource("Animation_3p2gp")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d27ed"]
@@ -207,7 +212,7 @@ scroll_active = false
 unique_name_in_owner = true
 root_node = NodePath("../SurviveText")
 libraries = {
-"": SubResource("AnimationLibrary_vyjm7")
+&"": SubResource("AnimationLibrary_vyjm7")
 }
 
 [node name="TutorialStage" parent="." instance=ExtResource("9_ecxt0")]
@@ -216,8 +221,11 @@ skip_tutorial_debug = true
 [node name="CatsFolderStage" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_iwlti")
-cat_enemies = Array[PackedScene]([ExtResource("6_vavrw"), ExtResource("7_n438w"), ExtResource("8_strjs"), ExtResource("9_g2xba")])
+cat_enemies = Array[PackedScene]([ExtResource("6_vavrw"), ExtResource("7_n438w"), ExtResource("8_strjs"), ExtResource("9_g2xba"), ExtResource("14_jbiqe"), ExtResource("15_w8sr8"), ExtResource("16_heg72"), ExtResource("17_1cd10")])
 is_active = null
+
+[node name="Audio" type="AudioStreamPlayer" parent="CatsFolderStage"]
+stream = ExtResource("14_oknxy")
 
 [node name="PlayerBullets" type="Node2D" parent="."]
 
@@ -240,8 +248,8 @@ color = Color(0, 0, 0, 1)
 
 [node name="ThesisDestructible" parent="." instance=ExtResource("14_34cig")]
 unique_name_in_owner = true
-visible = false
 position = Vector2(202, 149)
+disabled = true
 
 [node name="Sprite2D" parent="ThesisDestructible" index="1"]
 texture = ExtResource("16_oopbj")
@@ -270,6 +278,7 @@ unique_name_in_owner = true
 
 [node name="ThesisFolderStage" parent="." instance=ExtResource("14_3p2gp")]
 unique_name_in_owner = true
+start = false
 
 [node name="FileDeletion" parent="." instance=ExtResource("15_cvmbd")]
 

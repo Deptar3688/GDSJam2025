@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://banyhwd3laeby"]
+
+[ext_resource type="Script" path="res://scenes/CatsFolder/cats/CatEnemy.gd" id="1_pj74c"]
+[ext_resource type="Texture2D" uid="uid://bees2nc5nwvft" path="res://scenes/CatsFolder/cats/cookie/cookie.png" id="2_0ugdm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8xco"]
+size = Vector2(46, 45)
+
+[node name="Cabbit" type="Area2D"]
+script = ExtResource("1_pj74c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0ugdm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_u8xco")

@@ -5,6 +5,9 @@ extends Area2D
 @export var speed := 50.0
 var direction : Vector2
 
+func _ready() -> void:
+	Global.player_died.connect(queue_free)
+
 func _process(delta: float) -> void:
 	global_position += direction * delta * speed
 	for body in get_overlapping_bodies():

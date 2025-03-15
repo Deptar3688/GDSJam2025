@@ -16,6 +16,7 @@ var type: int
 func _ready() -> void:
 	direction = (Global.player.position - position).normalized()
 	type = CatType.values().pick_random()
+	Global.player_died.connect(queue_free)
 	match type:
 		CatType.NORMAL:
 			rotation_speed = randf_range(5, 10)

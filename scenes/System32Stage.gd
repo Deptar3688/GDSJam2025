@@ -78,3 +78,5 @@ func play_cursor_descend_audio():
 func _on_attack_timer_timeout():
 	current_phase = phase.values().pick_random()
 	is_attacking = false
+	pass
+	

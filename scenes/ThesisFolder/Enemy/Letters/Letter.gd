@@ -12,6 +12,7 @@ var velocity : float
 var spread :float 
 
 func _ready() ->void:
+	Global.player_died.connect(queue_free)
 	rotation_speed = randf_range(-2, 2)
 	pos = (Global.player.global_position - global_position) 
 	direction = (Global.player.global_position - global_position).normalized() 
