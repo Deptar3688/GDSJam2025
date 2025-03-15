@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 			take_damage()
 
 func take_damage():
+	AudioManager.play("res://audio/softThud.wav")
 	HP -= 1
 	var t = modulate.r
 	modulate.r = 100

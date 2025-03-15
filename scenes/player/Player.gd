@@ -49,3 +49,10 @@ func _draw() -> void:
 func take_damage():
 	current_health -= 1
 	Global.player_damaged.emit(current_health)
+	AudioManager.play("res://audio/softDestroy.wav")
+	AudioManager.play("res://audio/zapsplat_science_fiction_robot_glitch_error_malfunction_short_112386.mp3")
+	if current_health <= 0:
+		AudioManager.play("res://audio/zapsplat_science_fiction_robot_glitch_processing_error_malfunction_112389.mp3")
+		ScreenTransition.transparent_static(2.0, 1.0)
+	else:
+		ScreenTransition.transparent_static(0.2, 0.4)

@@ -21,7 +21,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not shooting:
 		global_position += direction * speed * delta
-	if (current_spawn_time >= spawn_time - 0.15 or current_spawn_time <= 0.15) and shoot:
+	if (current_spawn_time >= spawn_time - 0.2 or current_spawn_time <= 0.2) and shoot:
 		shooting = true
 	else:
 		shooting = false
