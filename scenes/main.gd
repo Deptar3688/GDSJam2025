@@ -11,6 +11,7 @@ func _ready():
 
 func _process(delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and shoot_cooldown.is_stopped():
+		AudioManager.play("res://audio/softClick.wav")
 		var player_bullet = player_bullet_tscn.instantiate()
 		player_bullet.global_position = player.global_position
 		player_bullet.direction = (get_global_mouse_position() - player.global_position).normalized()

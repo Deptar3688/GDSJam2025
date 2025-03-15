@@ -32,6 +32,6 @@ func _process(delta):
 func check_queue():
 	if not queue.is_empty() and not available.is_empty():
 		available[0].stream = load(queue.pop_front())
-		available[0].pitch_scale = randf_range(0.85, 1.15)
+		# available[0].pitch_scale = randf_range(0.85, 1.15)
 		available[0].play()
 		available.pop_front()
