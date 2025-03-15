@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d0sujmsgjt13u"]
 
-[ext_resource type="Script" uid="uid://cx4l1ye0070cj" path="res://scenes/ThesisFolder/ThesisFolderStage.gd" id="1_t2vuo"]
+[ext_resource type="Script" path="res://scenes/ThesisFolder/ThesisFolderStage.gd" id="1_t2vuo"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="3_nqb2i"]
 [ext_resource type="PackedScene" uid="uid://dryyx0ucjt0fc" path="res://scenes/ThesisFolder/Enemy/WordEnemy.tscn" id="6_nqb2i"]
 
@@ -109,8 +109,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_17n0u"]
 _data = {
-&"RESET": SubResource("Animation_17n0u"),
-&"start": SubResource("Animation_nqb2i")
+"RESET": SubResource("Animation_17n0u"),
+"start": SubResource("Animation_nqb2i")
 }
 
 [node name="ThesisFolderStage" type="Node2D"]
@@ -136,5 +136,5 @@ position = Vector2(-39, 23)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../SurviveText")
 libraries = {
-&"": SubResource("AnimationLibrary_17n0u")
+"": SubResource("AnimationLibrary_17n0u")
 }

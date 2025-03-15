@@ -20,6 +20,7 @@ func start_game():
 func firewall_destroyed():
 	firewalls_left_to_destroy -= 1
 	if firewalls_left_to_destroy <= 0:
+		await get_tree().create_timer(2.0).timeout
 		await create_tween().tween_property(%Background, "modulate:a", 1, 5.0).finished
 		await get_tree().create_timer(3.0).timeout
 		%ThesisStage.start()
