@@ -48,3 +48,12 @@ func finish_game():
 	await t.finished
 	await get_tree().create_timer(2.0).timeout
 	$AnimationPlayer.play("finish")
+
+func transparent_static(duration: float, alpha: float):
+	visible = true
+	$OverlayStaticEffect.visible = true
+	$OverlayStaticEffect.modulate.a = alpha
+	await get_tree().create_timer(duration).timeout
+	$OverlayStaticEffect.modulate.a = 0
+	$OverlayStaticEffect.visible = false
+	visible = false
