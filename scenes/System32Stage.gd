@@ -25,6 +25,9 @@ func _ready() -> void:
 	Global.player_died.connect(_on_player_died)
 
 func _on_player_died():
+	if $CursorBoss.is_moving:
+		return
+
 	%System32FakeDestructible.disabled = false
 	%System32FakeDestructible.current_health = 5
 	start_fight = false

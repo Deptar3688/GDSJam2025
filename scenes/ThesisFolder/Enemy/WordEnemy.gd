@@ -7,7 +7,7 @@ extends Area2D
 @export var speed := 50.0
 @export var active := false
 
-@export var HEALTH := 50
+@export var HEALTH := 30
 var current_health : int
 
 var current_time : float

@@ -11,7 +11,6 @@ var target_position: Vector2
 
 signal died()
 
-
 func _ready() -> void:
 	pass # Replace with function body.
 
