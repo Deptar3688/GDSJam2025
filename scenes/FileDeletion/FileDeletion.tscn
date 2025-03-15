@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk721h0i6avqk"]
+[gd_scene load_steps=10 format=3 uid="uid://bk721h0i6avqk"]
 
-[ext_resource type="Script" path="res://scenes/FileDeletion/FileDeletion.gd" id="1_xbp54"]
+[ext_resource type="Script" uid="uid://gn2q2bmcup5x" path="res://scenes/FileDeletion/FileDeletion.gd" id="1_xbp54"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_y7loe"]
 [ext_resource type="PackedScene" uid="uid://x7hjbvw2y6u7" path="res://scenes/HUD/HUD.tscn" id="2_xbp54"]
 [ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="3_ckw8q"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="4_rleum"]
 [ext_resource type="PackedScene" uid="uid://bor8rte7fe3xp" path="res://scenes/FileDeletion/Trash.tscn" id="6_ckw8q"]
-[ext_resource type="PackedScene" uid="uid://msixvo8hjwno" path="res://scenes/FileDeletion/TrashDoc.tscn" id="7_rleum"]
 
 [sub_resource type="Animation" id="Animation_55nbm"]
 length = 0.001
@@ -25,46 +24,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Trash:position")
+tracks/1/path = NodePath(".:spawning")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(200, -30)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Trash:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:spawning")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("TrashDoc:moving")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -89,47 +52,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Trash:position")
+tracks/1/path = NodePath(".:spawning")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5, 7.03333, 9.96667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(200, 30), Vector2(200, 30), Vector2(200, -30), Vector2(200, 150)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Trash:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 7.03333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:spawning")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(8.96667),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("TrashDoc:moving")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -137,8 +64,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_55nbm"]
 _data = {
-"RESET": SubResource("Animation_55nbm"),
-"start": SubResource("Animation_rleum")
+&"RESET": SubResource("Animation_55nbm"),
+&"start": SubResource("Animation_rleum")
 }
 
 [node name="FileDeletion" type="Node2D"]
@@ -164,20 +91,19 @@ offset_bottom = 82.0
 size_flags_horizontal = 4
 theme_override_fonts/normal_font = ExtResource("4_rleum")
 bbcode_enabled = true
-text = "[color=red]DELETE THE FILE.[/color]"
+text = "[color=red]DELETE THE FILES.[/color]"
 fit_content = true
 scroll_active = false
 
 [node name="Trash" parent="." instance=ExtResource("6_ckw8q")]
-position = Vector2(200, -30)
-
-[node name="TrashDoc" parent="." instance=ExtResource("7_rleum")]
-position = Vector2(193, 305)
+position = Vector2(200, 150)
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="AnimationTree" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_55nbm")
+&"": SubResource("AnimationLibrary_55nbm")
 }
 autoplay = "start"
+
+[node name="Files" type="Node2D" parent="."]

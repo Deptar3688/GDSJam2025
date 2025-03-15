@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bu4oqsjbryxe"]
 
-[ext_resource type="Shader" path="res://scenes/StageSelection/Burn.gdshader" id="1_fsax3"]
+[ext_resource type="Shader" uid="uid://cpfg7wfnd5fg8" path="res://scenes/StageSelection/Burn.gdshader" id="1_fsax3"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_irgh0"]
 frequency = 0.002

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bl14jirs6awlg" path="res://Bullets/PlayerBullet.tscn" id="2_k23k1"]
 [ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="3_mhsm2"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="4_mty0l"]
-[ext_resource type="Script" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="5_iwlti"]
+[ext_resource type="Script" uid="uid://j84jp4cau2av" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="5_iwlti"]
 [ext_resource type="PackedScene" uid="uid://ctqt40r3goim2" path="res://scenes/CatsFolder/cats/applecat/AppleCat.tscn" id="6_vavrw"]
 [ext_resource type="PackedScene" uid="uid://cegp7feci5vmb" path="res://scenes/CatsFolder/cats/blegh/BleghCat.tscn" id="7_n438w"]
 [ext_resource type="PackedScene" uid="uid://byo41ljuk1q0o" path="res://scenes/CatsFolder/cats/catbunny/catbunny.tscn" id="8_strjs"]
@@ -88,8 +88,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vyjm7"]
 _data = {
-"RESET": SubResource("Animation_spfom"),
-"start_cat_stage": SubResource("Animation_avypr")
+&"RESET": SubResource("Animation_spfom"),
+&"start_cat_stage": SubResource("Animation_avypr")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d27ed"]
@@ -157,7 +157,7 @@ scroll_active = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../SurviveText")
 libraries = {
-"": SubResource("AnimationLibrary_vyjm7")
+&"": SubResource("AnimationLibrary_vyjm7")
 }
 
 [node name="CatsFolderStage" type="Node2D" parent="."]
