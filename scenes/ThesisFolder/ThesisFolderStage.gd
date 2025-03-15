@@ -48,5 +48,5 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_word_enemy_die():
 	AudioManager.play("res://audio/fire-sound-effects-224089.wav")			
 	create_tween().tween_property($Window, "material:shader_parameter/percentage", 0.0, 1.0)
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(1).timeout
 	anim.play("end")

@@ -24,6 +24,7 @@ func _on_player_death():
 	is_active = false
 	$Audio.stop()
 	total_timer = 0.0
+	spawn_timer = ORIGINAL_SPAWN_TIMER
 
 func start():
 	spawn_timer = ORIGINAL_SPAWN_TIMER

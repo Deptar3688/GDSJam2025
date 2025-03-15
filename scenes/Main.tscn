@@ -221,7 +221,6 @@ libraries = {
 unique_name_in_owner = true
 script = ExtResource("5_iwlti")
 cat_enemies = Array[PackedScene]([ExtResource("6_vavrw"), ExtResource("7_n438w"), ExtResource("8_strjs"), ExtResource("9_g2xba"), ExtResource("14_jbiqe"), ExtResource("15_w8sr8"), ExtResource("16_heg72"), ExtResource("17_1cd10")])
-is_active = null
 
 [node name="Audio" type="AudioStreamPlayer" parent="CatsFolderStage"]
 stream = ExtResource("14_oknxy")
@@ -277,7 +276,6 @@ unique_name_in_owner = true
 
 [node name="ThesisFolderStage" parent="." instance=ExtResource("14_3p2gp")]
 unique_name_in_owner = true
-start = false
 
 [node name="FileDeletion" parent="." instance=ExtResource("15_cvmbd")]
 

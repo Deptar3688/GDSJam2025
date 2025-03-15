@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var is_active: bool = false
+
 @onready var firewall_container: =$FirewallContainer
 @export var firewall_flame: PackedScene
 @onready var attack_timer : Timer = $AttackTimer
@@ -11,6 +13,8 @@ var current_phase: phase
 
 @onready var mine_container: =$MineContainer
 @export var mine_scene: PackedScene
+
+var in_a_row := 0
 
 func _ready() -> void:
 	%System32FakeDestructible.destroyed.connect(start_cursor_fight)
@@ -25,11 +29,14 @@ func _ready() -> void:
 	Global.player_died.connect(_on_player_died)
 
 func _on_player_died():
+	if not is_active:
+		return
 	if $CursorBoss.is_moving:
 		return
 
 	%System32FakeDestructible.disabled = false
 	%System32FakeDestructible.current_health = 5
+	is_active = false
 	start_fight = false
 	is_attacking = false
 	attack_timer.stop()
@@ -38,6 +45,7 @@ func activate_fake_destructible():
 	%System32FakeDestructible.disabled = false
 
 func start_cursor_fight():
+	is_active = true
 	$AnimationPlayer.play("cursor_spawn")
 	
 	await get_tree().create_timer(7).timeout
@@ -79,21 +87,33 @@ func minesweeper_attack():
 		await get_tree().create_timer(4).timeout
 
 func _process(delta):
-	if start_fight:
-		if current_phase == phase.FIREWALL and not is_attacking:
-			is_attacking = true
-			spawn_firewall()
-		
-		elif current_phase == phase.MINESWEEPER and not is_attacking:
-			is_attacking = true
-			minesweeper_attack()
+	if is_active:
+		if start_fight:
+			if current_phase == phase.FIREWALL and not is_attacking:
+				is_attacking = true
+				spawn_firewall()
+			
+			elif current_phase == phase.MINESWEEPER and not is_attacking:
+				is_attacking = true
+				minesweeper_attack()
 	
 func play_cursor_descend_audio():
 	AudioManager.play("res://audio/zapsplat_sound_design_lfe_rumble_whoosh_001_77610.mp3")
 
 
 func _on_attack_timer_timeout():
+	var prev_phase = current_phase
 	current_phase = phase.values().pick_random()
+	if current_phase == prev_phase:
+		in_a_row+=1
+	else:
+		in_a_row = 0
+	
+	if in_a_row == 3:
+		while current_phase == prev_phase:
+			current_phase = phase.values().pick_random()
+		in_a_row = 0
+	
 	is_attacking = false
-	pass
+	
 	

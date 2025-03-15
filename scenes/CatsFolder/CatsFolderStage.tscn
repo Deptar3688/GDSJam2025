@@ -160,7 +160,6 @@ _data = {
 [node name="CatsFolderStage" type="Node2D"]
 script = ExtResource("1_d4kin")
 cat_enemies = Array[PackedScene]([ExtResource("6_0lfdu"), ExtResource("5_xsyq5"), ExtResource("4_bi6my"), ExtResource("5_yw4oj")])
-is_active = null
 
 [node name="TextureRect" type="TextureRect" parent="."]
 self_modulate = Color(0.529412, 0.545098, 0.54902, 1)
