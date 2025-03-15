@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6i0uw4cucpiw"
-path="res://.godot/imported/funireference.png-41d3d83fda84d0e3d81ee3fbba6b60b3.ctex"
+uid="uid://c75v0y85se5qf"
+path="res://.godot/imported/melissa.png-3834bf2e79c1c56d555ce150fbc653cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/CatsFolder/cats/sanscat/funireference.png"
-dest_files=["res://.godot/imported/funireference.png-41d3d83fda84d0e3d81ee3fbba6b60b3.ctex"]
+source_file="res://scenes/CatsFolder/cats/melissa/melissa.png"
+dest_files=["res://.godot/imported/melissa.png-3834bf2e79c1c56d555ce150fbc653cc.ctex"]
 
 [params]
 

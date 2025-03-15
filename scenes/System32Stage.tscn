@@ -160,6 +160,7 @@ libraries = {
 unique_name_in_owner = true
 visible = false
 position = Vector2(199, 150)
+disabled = true
 
 [node name="ColorRect" type="ColorRect" parent="System32FakeDestructible"]
 visible = false

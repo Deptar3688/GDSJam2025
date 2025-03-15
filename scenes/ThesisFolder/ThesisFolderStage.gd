@@ -19,6 +19,7 @@ func _ready() -> void:
 		%HUD.visible = true
 		)
 	Global.player_died.connect(_on_player_death)
+	$WordEnemy.die.connect(_on_word_enemy_die)
 
 func _on_player_death():
 	if not is_active:
@@ -37,7 +38,6 @@ func _process(delta: float) -> void:
 		current_spawn_time -= delta
 		if current_spawn_time <= 0:
 			current_spawn_time = spawn_time
-			
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'end':
@@ -46,6 +46,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_word_enemy_die():
+	AudioManager.play("res://audio/fire-sound-effects-224089.wav")			
 	create_tween().tween_property($Window, "material:shader_parameter/percentage", 0.0, 1.0)
 	await get_tree().create_timer(4).timeout
 	anim.play("end")

@@ -38,6 +38,7 @@ func _process(delta: float) -> void:
 
 func burn():
 	if burnable:
+		AudioManager.play("res://audio/fire-sound-effects-224089.wav")
 		burnable = false
 		texture.material = texture_burning_material.duplicate(true)
 		texture.material.get_shader_parameter("burn_texture").noise.seed = randi_range(-100000, 100000)

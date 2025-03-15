@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dslcyfy7osoi5"]
+[gd_scene load_steps=32 format=3 uid="uid://dslcyfy7osoi5"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_0fcto"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_yiafq"]
@@ -15,9 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://dm4ttv8tired4" path="res://scenes/CatsFolder/cats/cabbit/Cabbit.tscn" id="9_g2xba"]
 [ext_resource type="PackedScene" uid="uid://d0sujmsgjt13u" path="res://scenes/ThesisFolder/ThesisFolderStage.tscn" id="14_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://ctx6c2jppcq6f" path="res://scenes/Destructible/Destructible.tscn" id="14_34cig"]
+[ext_resource type="PackedScene" uid="uid://banyhwd3laeby" path="res://scenes/CatsFolder/cats/cookie/Cookie.tscn" id="14_jbiqe"]
 [ext_resource type="AudioStream" uid="uid://cndybdsx41gb8" path="res://audio/cinematic-music-sketches-11-cinematic-percussion-sketch-116186.mp3" id="14_oknxy"]
 [ext_resource type="PackedScene" uid="uid://bk721h0i6avqk" path="res://scenes/FileDeletion/FileDeletion.tscn" id="15_cvmbd"]
+[ext_resource type="PackedScene" uid="uid://qx3466bwmmwj" path="res://scenes/CatsFolder/cats/jackson/Jackson.tscn" id="15_w8sr8"]
+[ext_resource type="PackedScene" uid="uid://bdpbnojcrtx85" path="res://scenes/CatsFolder/cats/melissa/Melissa.tscn" id="16_heg72"]
 [ext_resource type="Texture2D" uid="uid://oxi7qvdscnae" path="res://assets/Wordfile_enlarged.png" id="16_oopbj"]
+[ext_resource type="PackedScene" uid="uid://cjnuaagr3tyem" path="res://scenes/CatsFolder/cats/gleeb/Gleeb.tscn" id="17_1cd10"]
 [ext_resource type="PackedScene" uid="uid://bmil7gd4c3ut1" path="res://scenes/System32Stage.tscn" id="17_w0bfw"]
 [ext_resource type="PackedScene" path="res://scenes/Destructible/TrashDestructible.tscn" id="19_nfivy"]
 
@@ -217,7 +221,7 @@ skip_tutorial_debug = true
 [node name="CatsFolderStage" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_iwlti")
-cat_enemies = Array[PackedScene]([ExtResource("6_vavrw"), ExtResource("7_n438w"), ExtResource("8_strjs"), ExtResource("9_g2xba")])
+cat_enemies = Array[PackedScene]([ExtResource("6_vavrw"), ExtResource("7_n438w"), ExtResource("8_strjs"), ExtResource("9_g2xba"), ExtResource("14_jbiqe"), ExtResource("15_w8sr8"), ExtResource("16_heg72"), ExtResource("17_1cd10")])
 is_active = null
 
 [node name="Audio" type="AudioStreamPlayer" parent="CatsFolderStage"]
@@ -257,7 +261,6 @@ text = "thesis.docx"
 unique_name_in_owner = true
 visible = false
 position = Vector2(202, 149)
-disabled = true
 
 [node name="System32Destructible" parent="." instance=ExtResource("14_34cig")]
 unique_name_in_owner = true

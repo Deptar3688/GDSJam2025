@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 		
 	current_spawn_time += + delta
 	if current_spawn_time >= spawn_time and shoot:
+		AudioManager.play("res://audio/action.wav")
 		shoot = false
 		current_spawn_time = 0.0
 		var proj_speed := randf_range(100, 250)
