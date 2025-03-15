@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://v3s8b032wwr8" path="res://Bullets/PlayerBullet.tscn" id="2_k23k1"]
 [ext_resource type="PackedScene" uid="uid://d4hx3qm7tpqwh" path="res://scenes/player/Player.tscn" id="3_mhsm2"]
 [ext_resource type="FontFile" uid="uid://c6bhpy703nh3g" path="res://theme/fonts/nokiafc22.ttf" id="4_mty0l"]
-[ext_resource type="Script" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="5_iwlti"]
+[ext_resource type="Script" uid="uid://j84jp4cau2av" path="res://scenes/CatsFolder/CatsFolderStage.gd" id="5_iwlti"]
 [ext_resource type="PackedScene" uid="uid://ctqt40r3goim2" path="res://scenes/CatsFolder/cats/applecat/AppleCat.tscn" id="6_vavrw"]
 [ext_resource type="PackedScene" uid="uid://cegp7feci5vmb" path="res://scenes/CatsFolder/cats/blegh/BleghCat.tscn" id="7_n438w"]
 [ext_resource type="PackedScene" uid="uid://byo41ljuk1q0o" path="res://scenes/CatsFolder/cats/catbunny/catbunny.tscn" id="8_strjs"]
@@ -17,7 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://ctx6c2jppcq6f" path="res://scenes/Destructible/Destructible.tscn" id="14_34cig"]
 [ext_resource type="PackedScene" uid="uid://bk721h0i6avqk" path="res://scenes/FileDeletion/FileDeletion.tscn" id="15_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://oxi7qvdscnae" path="res://assets/Wordfile_enlarged.png" id="16_oopbj"]
+<<<<<<< HEAD
+[ext_resource type="PackedScene" path="res://scenes/System32Stage.tscn" id="17_w0bfw"]
+=======
 [ext_resource type="PackedScene" uid="uid://bmil7gd4c3ut1" path="res://scenes/System32Stage.tscn" id="17_w0bfw"]
+>>>>>>> d253f59b7653a507d128bf41d52d9e8fc74dcd46
 [ext_resource type="PackedScene" path="res://scenes/Destructible/TrashDestructible.tscn" id="19_nfivy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pgmyh"]
@@ -125,10 +129,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vyjm7"]
 _data = {
-"RESET": SubResource("Animation_spfom"),
-"start_cat_stage": SubResource("Animation_avypr"),
-"start_file_deletion": SubResource("Animation_cvmbd"),
-"start_thesis_stage": SubResource("Animation_3p2gp")
+&"RESET": SubResource("Animation_spfom"),
+&"start_cat_stage": SubResource("Animation_avypr"),
+&"start_file_deletion": SubResource("Animation_cvmbd"),
+&"start_thesis_stage": SubResource("Animation_3p2gp")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d27ed"]
@@ -193,7 +197,7 @@ scroll_active = false
 unique_name_in_owner = true
 root_node = NodePath("../SurviveText")
 libraries = {
-"": SubResource("AnimationLibrary_vyjm7")
+&"": SubResource("AnimationLibrary_vyjm7")
 }
 
 [node name="TutorialStage" parent="." instance=ExtResource("9_ecxt0")]
