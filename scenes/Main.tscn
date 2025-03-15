@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://r6oavs55rag8"]
+[gd_scene load_steps=20 format=3 uid="uid://r6oavs55rag8"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_0fcto"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_yiafq"]
@@ -165,6 +165,7 @@ script = ExtResource("5_iwlti")
 cat_enemies = Array[PackedScene]([ExtResource("6_vavrw"), ExtResource("7_n438w"), ExtResource("8_strjs"), ExtResource("9_g2xba")])
 
 [node name="PlayerBullets" type="Node2D" parent="."]
+
 [node name="OverlayStaticEffect" type="CanvasLayer" parent="."]
 visible = false
 

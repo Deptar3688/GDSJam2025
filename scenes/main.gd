@@ -6,7 +6,6 @@ extends Node2D
 @onready var shoot_cooldown:= $Player/ShootCD
 
 func _ready():
-	pass # Replace with function body.
 	pass
 
 
