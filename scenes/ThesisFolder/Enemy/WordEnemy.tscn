@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://dryyx0ucjt0fc"]
 
-[ext_resource type="Texture2D" uid="uid://oxi7qvdscnae" path="res://assets/Wordfile_enlarged.png" id="1_hnjhg"]
-[ext_resource type="Script" uid="uid://bjttxcgq7pepo" path="res://scenes/ThesisFolder/Enemy/WordEnemy.gd" id="1_lnlon"]
+[ext_resource type="Script" path="res://scenes/ThesisFolder/Enemy/WordEnemy.gd" id="1_lnlon"]
+[ext_resource type="Texture2D" uid="uid://dwprvs8jtclot" path="res://assets/Clippy.png" id="2_l0cay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnlon"]
-size = Vector2(35, 38)
+size = Vector2(42, 44)
 
 [node name="WordEnemy" type="Area2D"]
 script = ExtResource("1_lnlon")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_hnjhg")
+texture = ExtResource("2_l0cay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -1)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_lnlon")

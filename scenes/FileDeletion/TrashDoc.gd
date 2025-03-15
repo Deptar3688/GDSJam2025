@@ -1,9 +1,11 @@
 extends Area2D
+class_name TrashDoc
 
 @onready var texture = $TrashDoc/BG
 @onready var texture_burning_material: ShaderMaterial = preload("res://scenes/StageSelection/StageIconBurningMaterial.tres")
 @onready var SceneNode := get_parent().get_parent()
 var burnable : bool
+var spawned : bool
 @export var moving : bool
 
 var speed : float
@@ -13,6 +15,12 @@ func _ready() -> void:
 	moving = false
 	speed = 0.0
 	visible=false
+	spawned = false
+	
+	
+func spawn() -> void:
+	if not spawned :
+		DustParticle.create_dust_explosion(position, 16, 300, get_parent())
 	
 func _process(delta: float) -> void:
 	# ---- CHECK IF PLAYER -----

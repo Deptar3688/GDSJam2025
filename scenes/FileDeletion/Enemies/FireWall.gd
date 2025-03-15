@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 			FireHit.global_position = Global.player.global_position
 			get_parent().add_child(FireHit)
 			queue_free()
-
-
+	
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
