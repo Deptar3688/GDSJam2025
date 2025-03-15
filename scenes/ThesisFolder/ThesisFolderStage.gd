@@ -27,6 +27,8 @@ func _on_player_death():
 	anim.play("RESET")
 	%ThesisDestructible.disabled = false
 	%ThesisDestructible.current_health = 5
+	$WordEnemy.current_health = 50
+	$WordEnemy.amount = 5
 
 func _process(delta: float) -> void:
 	if start:
