@@ -1,9 +1,12 @@
 extends Node2D
 
+@export var skip_tutorial_debug: bool = false
+
 var firewalls_left_to_destroy: int
 
 func _ready() -> void:
-	pass
+	if skip_tutorial_debug:
+		return
 	%BackgroundStatic.visible = true
 	%BackgroundStatic.modulate.a = 1
 	%Background.modulate.a = 0
