@@ -197,6 +197,7 @@ libraries = {
 }
 
 [node name="TutorialStage" parent="." instance=ExtResource("9_ecxt0")]
+skip_tutorial_debug = true
 
 [node name="CatsFolderStage" type="Node2D" parent="."]
 unique_name_in_owner = true
