@@ -102,7 +102,8 @@ func _process(delta: float) -> void:
 		spawn_enemy()
 	
 	# --------- CHECK IF ANY MORE DOC ---------
-	checkFiles()
+	if trash.visible:
+		checkFiles()
 	
 	
 
