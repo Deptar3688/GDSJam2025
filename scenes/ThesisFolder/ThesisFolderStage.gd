@@ -19,6 +19,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if start:
+		Global.current_stage = Global.Stage.THESIS
 		anim.play("start")
 		start = false
 	

@@ -42,6 +42,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if start:
+		Global.current_stage = Global.Stage.TRASH
 		anim.play("start")
 		start = false
 	

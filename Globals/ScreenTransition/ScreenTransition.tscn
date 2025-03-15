@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c86gaj5auo6mf"]
+[gd_scene load_steps=8 format=3 uid="uid://c86gaj5auo6mf"]
 
-[ext_resource type="Script" uid="uid://yb2op1o468at" path="res://Globals/ScreenTransition/ScreenTransition.gd" id="1_gxser"]
-[ext_resource type="Shader" uid="uid://djm4owpfnhtf" path="res://Globals/ScreenTransition/HalftoneTransition.gdshader" id="1_mcwtj"]
+[ext_resource type="Script" path="res://Globals/ScreenTransition/ScreenTransition.gd" id="1_gxser"]
+[ext_resource type="Shader" path="res://Globals/ScreenTransition/HalftoneTransition.gdshader" id="1_mcwtj"]
+[ext_resource type="Shader" path="res://scenes/Static.gdshader" id="3_htoa8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vss5j"]
 shader = ExtResource("1_mcwtj")
@@ -19,6 +20,10 @@ colors = PackedColorArray(0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_sbcrf"]
 gradient = SubResource("Gradient_jreri")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6n6ff"]
+shader = ExtResource("3_htoa8")
+shader_parameter/amount = 3.0
+
 [node name="ScreenTransition" type="CanvasLayer"]
 layer = 128
 script = ExtResource("1_gxser")
@@ -31,3 +36,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_sbcrf")
+
+[node name="OverlayStaticEffect" type="Node2D" parent="."]
+visible = false
+
+[node name="Black" type="ColorRect" parent="OverlayStaticEffect"]
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 406.0
+offset_bottom = 307.0
+
+[node name="Static" type="ColorRect" parent="OverlayStaticEffect"]
+material = SubResource("ShaderMaterial_6n6ff")
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 416.0
+offset_bottom = 306.0
+color = Color(0, 0, 0, 1)

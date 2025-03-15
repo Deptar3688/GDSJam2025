@@ -15,6 +15,7 @@ func _ready() -> void:
 func start():
 	%HUD.set_text("Level 3: cat pictures")
 	is_active = true
+	Global.current_stage = Global.Stage.CATS
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
