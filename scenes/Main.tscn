@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dslcyfy7osoi5"]
+[gd_scene load_steps=27 format=3 uid="uid://dslcyfy7osoi5"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_0fcto"]
 [ext_resource type="Texture2D" uid="uid://dtd3w2x0ibgp4" path="res://assets/BG.png" id="1_yiafq"]
@@ -11,14 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://ctqt40r3goim2" path="res://scenes/CatsFolder/cats/applecat/AppleCat.tscn" id="6_vavrw"]
 [ext_resource type="PackedScene" uid="uid://cegp7feci5vmb" path="res://scenes/CatsFolder/cats/blegh/BleghCat.tscn" id="7_n438w"]
 [ext_resource type="PackedScene" uid="uid://byo41ljuk1q0o" path="res://scenes/CatsFolder/cats/catbunny/catbunny.tscn" id="8_strjs"]
+[ext_resource type="PackedScene" uid="uid://3fhghmvt8l3h" path="res://scenes/TutorialStage.tscn" id="9_ecxt0"]
 [ext_resource type="PackedScene" uid="uid://dm4ttv8tired4" path="res://scenes/CatsFolder/cats/cabbit/Cabbit.tscn" id="9_g2xba"]
-[ext_resource type="Script" path="res://scenes/TutorialStage.gd" id="9_iont1"]
-[ext_resource type="Script" path="res://scenes/ThesisStage.gd" id="10_n2clk"]
 [ext_resource type="Shader" path="res://scenes/trippy.gdshader" id="10_tjhwg"]
 [ext_resource type="PackedScene" uid="uid://d0sujmsgjt13u" path="res://scenes/ThesisFolder/ThesisFolderStage.tscn" id="14_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://ctx6c2jppcq6f" path="res://scenes/Destructible/Destructible.tscn" id="14_34cig"]
 [ext_resource type="PackedScene" uid="uid://bk721h0i6avqk" path="res://scenes/FileDeletion/FileDeletion.tscn" id="15_cvmbd"]
-[ext_resource type="Texture2D" uid="uid://bw0rwekj7bob1" path="res://assets/Firewall.png" id="16_mjbcx"]
 [ext_resource type="Texture2D" uid="uid://oxi7qvdscnae" path="res://assets/Wordfile_enlarged.png" id="16_oopbj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pgmyh"]
@@ -218,12 +216,7 @@ libraries = {
 "": SubResource("AnimationLibrary_vyjm7")
 }
 
-[node name="TutorialStage" type="Node2D" parent="."]
-script = ExtResource("9_iont1")
-
-[node name="ThesisStage" type="Node2D" parent="."]
-unique_name_in_owner = true
-script = ExtResource("10_n2clk")
+[node name="TutorialStage" parent="." instance=ExtResource("9_ecxt0")]
 
 [node name="CatsFolderStage" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -267,64 +260,8 @@ visible = false
 position = Vector2(202, 149)
 disabled = true
 
-[node name="TutorialLabel" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = 109.0
-offset_top = 201.0
-offset_right = 313.0
-offset_bottom = 230.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "WASD to move. Left Click to shoot.
-Break through the firewall."
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="ThesisFolderStage" parent="." instance=ExtResource("14_3p2gp")]
 
 [node name="FileDeletion" parent="." instance=ExtResource("15_cvmbd")]
 
-[node name="FirewallDestructibles" type="Node2D" parent="."]
-unique_name_in_owner = true
-visible = false
-
-[node name="FirewallDestructible" parent="FirewallDestructibles" instance=ExtResource("14_34cig")]
-position = Vector2(347, 69)
-
-[node name="Sprite2D" parent="FirewallDestructibles/FirewallDestructible" index="1"]
-texture = ExtResource("16_mjbcx")
-
-[node name="Label" parent="FirewallDestructibles/FirewallDestructible" index="2"]
-text = ""
-
-[node name="FirewallDestructible2" parent="FirewallDestructibles" instance=ExtResource("14_34cig")]
-position = Vector2(72, 70)
-
-[node name="Sprite2D" parent="FirewallDestructibles/FirewallDestructible2" index="1"]
-texture = ExtResource("16_mjbcx")
-
-[node name="Label" parent="FirewallDestructibles/FirewallDestructible2" index="2"]
-text = ""
-
-[node name="FirewallDestructible3" parent="FirewallDestructibles" instance=ExtResource("14_34cig")]
-position = Vector2(348, 221)
-
-[node name="Sprite2D" parent="FirewallDestructibles/FirewallDestructible3" index="1"]
-texture = ExtResource("16_mjbcx")
-
-[node name="Label" parent="FirewallDestructibles/FirewallDestructible3" index="2"]
-text = ""
-
-[node name="FirewallDestructible4" parent="FirewallDestructibles" instance=ExtResource("14_34cig")]
-position = Vector2(69, 219)
-
-[node name="Sprite2D" parent="FirewallDestructibles/FirewallDestructible4" index="1"]
-texture = ExtResource("16_mjbcx")
-
-[node name="Label" parent="FirewallDestructibles/FirewallDestructible4" index="2"]
-text = ""
-
 [editable path="ThesisDestructible"]
-[editable path="FirewallDestructibles/FirewallDestructible"]
-[editable path="FirewallDestructibles/FirewallDestructible2"]
-[editable path="FirewallDestructibles/FirewallDestructible3"]
-[editable path="FirewallDestructibles/FirewallDestructible4"]
