@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmil7gd4c3ut1"]
+[gd_scene load_steps=11 format=3 uid="uid://bmil7gd4c3ut1"]
 
 [ext_resource type="Script" path="res://scenes/System32Stage.gd" id="1_aal7w"]
 [ext_resource type="PackedScene" uid="uid://bvn6u6bdc6kg0" path="res://scenes/Destructible/System32FakeDestructible.tscn" id="2_c5t78"]
 [ext_resource type="Texture2D" uid="uid://c6f347xn2lpf4" path="res://assets/cursor.png" id="3_e41oy"]
+[ext_resource type="Script" path="res://scenes/CursorBoss.gd" id="3_p8n1g"]
+[ext_resource type="Shader" path="res://scenes/trippy.gdshader" id="5_mat3i"]
 
 [sub_resource type="Animation" id="Animation_sdc26"]
 length = 0.001
@@ -41,6 +43,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TrippyBackgroundOverlay:material:shader_parameter/alpha")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_ove28"]
@@ -83,6 +97,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TrippyBackgroundOverlay:material:shader_parameter/alpha")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.25, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.5]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cy7te"]
 _data = {
@@ -92,6 +118,19 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njdqb"]
 size = Vector2(18, 23)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7b3i"]
+shader = ExtResource("5_mat3i")
+shader_parameter/kelvin = 1000.0
+shader_parameter/red_colour = 7.4
+shader_parameter/green_colour = 5.6
+shader_parameter/blue_colour = 4.4
+shader_parameter/time_factor = 1.5
+shader_parameter/move = false
+shader_parameter/resolution = 0.4
+shader_parameter/sin_roll = 0.25
+shader_parameter/cos_roll = 0.25
+shader_parameter/alpha = 0.0
 
 [node name="System32Stage" type="Node2D"]
 script = ExtResource("1_aal7w")
@@ -103,6 +142,7 @@ libraries = {
 
 [node name="System32FakeDestructible" parent="." instance=ExtResource("2_c5t78")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(199, 150)
 disabled = true
 
@@ -116,6 +156,7 @@ color = Color(0.329412, 0.666667, 0.847059, 0.376471)
 
 [node name="CursorBoss" type="Area2D" parent="."]
 position = Vector2(432, -17)
+script = ExtResource("3_p8n1g")
 
 [node name="Sprite2D" type="Sprite2D" parent="CursorBoss"]
 texture = ExtResource("3_e41oy")
@@ -124,3 +165,11 @@ hframes = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CursorBoss"]
 position = Vector2(-1, -1.5)
 shape = SubResource("RectangleShape2D_njdqb")
+
+[node name="TrippyBackgroundOverlay" type="ColorRect" parent="."]
+z_index = -4
+material = SubResource("ShaderMaterial_i7b3i")
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 405.0
+offset_bottom = 305.0

@@ -1,11 +1,19 @@
 extends Area2D
 
+var HP: int = 40
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	for area in get_overlapping_areas():
+		if area is PlayerBullet:
+			area.queue_free()
+			take_damage()
+
+func take_damage():
+	HP -= 1
+	var t = modulate.r
+	modulate.r = 100
+	await get_tree().create_timer(0.05).timeout
+	modulate.r = t
